@@ -17,7 +17,7 @@ TickType_t SystemTick; // 系统滴答计数
  * @param argument 任务参数
  * @details 该函数是云台任务的主循环，负责处理云台的各种控制逻辑
  */
-void Gimbal(void *argument)
+void Dart1(void *argument)
 {
     /* USER CODE BEGIN LED_Flashing */
     TickType_t Lasttick = xTaskGetTickCount();
