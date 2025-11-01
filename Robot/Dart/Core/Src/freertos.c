@@ -61,10 +61,10 @@ const osThreadAttr_t EventH_attributes = {
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
-/* Definitions for GimbalH */
-osThreadId_t GimbalHHandle;
-const osThreadAttr_t GimbalH_attributes = {
-  .name = "GimbalH",
+/* Definitions for DartH */
+osThreadId_t DartHHandle;
+const osThreadAttr_t DartH_attributes = {
+  .name = "DartH",
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal,
 };
@@ -102,7 +102,7 @@ const osMessageQueueAttr_t Queue_DT7ToGimbal_attributes = {
 
 void PIDControl(void *argument);
 void EventReport(void *argument);
-void Gimbal(void *argument);
+void Dart1(void *argument);
 void UartSend(void *argument);
 void VisionSend(void *argument);
 void TimerCallback(void *argument);
@@ -146,8 +146,8 @@ void MX_FREERTOS_Init(void) {
   /* creation of EventH */
   EventHHandle = osThreadNew(EventReport, NULL, &EventH_attributes);
 
-  /* creation of GimbalH */
-  GimbalHHandle = osThreadNew(Gimbal, NULL, &GimbalH_attributes);
+  /* creation of DartH */
+  DartHHandle = osThreadNew(Dart1, NULL, &DartH_attributes);
 
   /* creation of UartH */
   UartHHandle = osThreadNew(UartSend, NULL, &UartH_attributes);
@@ -204,22 +204,22 @@ __weak void EventReport(void *argument)
   /* USER CODE END EventReport */
 }
 
-/* USER CODE BEGIN Header_Gimbal */
+/* USER CODE BEGIN Header_Dart1 */
 /**
-* @brief Function implementing the GimbalH thread.
+* @brief Function implementing the DartH thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_Gimbal */
-__weak void Gimbal(void *argument)
+/* USER CODE END Header_Dart1 */
+__weak void Dart1(void *argument)
 {
-  /* USER CODE BEGIN Gimbal */
+  /* USER CODE BEGIN Dart1 */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END Gimbal */
+  /* USER CODE END Dart1 */
 }
 
 /* USER CODE BEGIN Header_UartSend */

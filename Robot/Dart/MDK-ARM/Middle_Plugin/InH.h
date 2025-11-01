@@ -13,7 +13,7 @@ extern osMessageQueueId_t Queue_DT7ToGimbalHandle;
 
 __weak void PIDControl(void *argument);
 __weak void EventReport(void *argument);
-__weak void Gimbal(void *argument);
+__weak void Dart1(void *argument);
 __weak void UartSend(void *argument);
 __weak void VisionSend(void *argument);
 __weak void TimerCallback(void *argument);
