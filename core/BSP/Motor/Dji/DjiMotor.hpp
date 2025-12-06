@@ -94,8 +94,9 @@ template <uint8_t N> class DjiMotorBase : public MotorBase<N>
                 feedback_[i].current = __builtin_bswap16(feedback_[i].current);
 
                 Configure(i);
-
-                this->updateTimestamp(i + 1);
+                this->state_watch_[i].UpdateTime();
+                this->state_watch_[i].UpdateLastTime();
+                this->state_watch_[i].CheckStatus();
             }
         }
     }

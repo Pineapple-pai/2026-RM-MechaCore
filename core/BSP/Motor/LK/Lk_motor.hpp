@@ -102,8 +102,9 @@ template <uint8_t N> class LkMotorBase : public MotorBase<N>
 
                 // 调用Configure处理数据
                 Configure(i, feedback_[i]);
-                this->state_watch_[i].updateTimestamp();
-                this->state_watch_[i].check();
+                this->state_watch_[i].UpdateTime();
+                this->state_watch_[i].UpdateLastTime();
+                this->state_watch_[i].CheckStatus();
             }
         }
     }

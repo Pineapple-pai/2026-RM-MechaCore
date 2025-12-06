@@ -170,7 +170,9 @@ template <uint8_t N> class DMMotorBase : public MotorBase<N>
                 feedback_[i].T_Rotor = pData[7];
 
                 Configure(i);
-
+                this->state_watch_[i].UpdateTime();
+                this->state_watch_[i].UpdateLastTime();
+                this->state_watch_[i].CheckStatus();
                 break;
             }
         }
