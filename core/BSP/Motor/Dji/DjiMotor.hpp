@@ -79,7 +79,7 @@ template <uint8_t N> class DjiMotorBase : public MotorBase<N>
      * @param RxHeader  接收数据的句柄
      * @param pData     接收数据的缓冲区
      */
-    void Parse(const HAL::CAN::Frame &frame) override
+    void Parse(const HAL::CAN::Frame &frame)
     {
         const uint16_t received_id = frame.id;
 
