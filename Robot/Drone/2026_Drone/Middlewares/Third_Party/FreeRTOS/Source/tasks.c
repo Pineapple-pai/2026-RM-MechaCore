@@ -3434,13 +3434,13 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 				taskYIELD();
 			}
 			else
-			{
-				mtCOVERAGE_TEST_MARKER();
+			{;
 			}
 		}
 		#endif /* ( ( configUSE_PREEMPTION == 1 ) && ( configIDLE_SHOULD_YIELD == 1 ) ) */
 
 		#if ( configUSE_IDLE_HOOK == 1 )
+				mtCOVERAGE_TEST_MARKER()
 		{
 			extern void vApplicationIdleHook( void );
 

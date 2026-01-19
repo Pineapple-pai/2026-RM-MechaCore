@@ -15,7 +15,11 @@ typedef struct
     float target_pitch;
     float target_dial;
     float target_surgewheel[2];
-    float normalized_feedback;
+    float normalized_feedback_yaw;
+    float normalized_feedback_pitch;
+    float Test_data_1;
+    float Test_data_2;
+    float Test_data_3;
 }ControlTask;
 
 typedef struct

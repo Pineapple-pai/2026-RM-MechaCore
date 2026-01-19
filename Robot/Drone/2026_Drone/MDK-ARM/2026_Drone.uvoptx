@@ -163,27 +163,47 @@
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Motor6020</ItemText>
+          <ItemText>gimbal_target</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>gimbal_target</ItemText>
+          <ItemText>yaw_angle_pid</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>yaw_angle_pid</ItemText>
+          <ItemText>yaw_velocity_pid</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>yaw_velocity_pid</ItemText>
+          <ItemText>MotorJ4310</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>gimbal_output</ItemText>
+          <ItemText>\\2026_Drone\../User/Task/MotorTask.cpp\Motor6020</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pitch_angle_pid</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pitch_velocity_pid</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\2026_Drone\../User/Task/ControlTask.cpp\gimbal_output</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>frame</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
