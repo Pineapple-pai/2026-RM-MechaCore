@@ -168,7 +168,7 @@ namespace BSP::Motor::DM
             frame.is_extended_id = false;
             frame.is_remote_frame = false;
             
-            HAL::CAN::get_can_bus_instance().get_can1().send(frame);
+            HAL::CAN::get_can_bus_instance().get_can2().send(frame);
         }
 
 
@@ -249,7 +249,7 @@ namespace BSP::Motor::DM
             frame.is_extended_id = false;
             frame.is_remote_frame = false;
             
-            HAL::CAN::get_can_bus_instance().get_can1().send(frame);
+            HAL::CAN::get_can_bus_instance().get_can2().send(frame);
         }
         
         /**
@@ -278,7 +278,7 @@ namespace BSP::Motor::DM
             frame.is_extended_id = false;
             frame.is_remote_frame = false;
             
-            HAL::CAN::get_can_bus_instance().get_can1().send(frame);
+            HAL::CAN::get_can_bus_instance().get_can2().send(frame);
         }
 
         /**
@@ -307,7 +307,7 @@ namespace BSP::Motor::DM
             frame.is_extended_id = false;
             frame.is_remote_frame = false;
             
-            HAL::CAN::get_can_bus_instance().get_can1().send(frame);
+            HAL::CAN::get_can_bus_instance().get_can2().send(frame);
         }
 
     protected:
@@ -327,7 +327,7 @@ namespace BSP::Motor::DM
     public:
         J4310(uint16_t Init_id, const uint8_t (&ids)[N], const uint32_t (&send_idxs)[N])
             : DMMotorBase<N>(Init_id, ids, send_idxs, 
-                            Parameters(-12.56f, 12.56f, -45.0f, 45.0f, -18.0f, 18.0f, 0.0f, 500.0f, 0.0f, 5.0f))
+                            Parameters(-6.28f, 6.28f, -45.0f, 45.0f, -18.0f, 18.0f, 0.0f, 500.0f, 0.0f, 5.0f))
         {
         }
     };

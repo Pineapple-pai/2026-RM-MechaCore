@@ -87,6 +87,8 @@
   E:\keli\ARM\ARMCLANG\Bin\..\include\libcxx\stdexcept \
   E:\keli\ARM\ARMCLANG\Bin\..\include\libcxx\functional \
   E:\keli\ARM\ARMCLANG\Bin\..\include\libcxx\bit \
+  ..\User\Task\..\core\BSP\IMU\HI12_imu.hpp \
+  ..\User\Task\..\core\BSP\IMU\HI12Base.hpp \
   ..\User\Task\..\core\HAL\UART\uart_hal.hpp \
   ..\User\Task\..\core\HAL\UART\interface\uart_bus.hpp \
   ..\User\Task\..\core\HAL\UART\interface\uart_device.hpp \
@@ -95,4 +97,5 @@
   ..\User\..\user\core\HAL\CAN\can_hal.hpp \
   ..\User\..\user\core\HAL\CAN\interface\can_bus.hpp \
   ..\User\..\user\core\HAL\CAN\interface\can_device.hpp \
-  ..\Core\Inc\can.h ..\User\Task\..\core\BSP\Motor\DM\DmMotor.hpp
+  ..\Core\Inc\can.h ..\User\Task\..\core\BSP\Motor\DM\DmMotor.hpp \
+  ..\User\Task\..\core\Alg\Filter\Filter.hpp

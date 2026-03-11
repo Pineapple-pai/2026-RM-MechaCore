@@ -52,8 +52,10 @@ class UartBus : public IUartBus
 
     // 实际设备实例
     UartDevice uart1_;
-    UartDevice uart3_;
     UartDevice uart6_;
+    UartDevice uart7_;
+    UartDevice uart8_;
+    UartDevice uart2_;
 };
 
 } // namespace HAL::UART

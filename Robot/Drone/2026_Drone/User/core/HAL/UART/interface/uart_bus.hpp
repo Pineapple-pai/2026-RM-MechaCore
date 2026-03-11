@@ -9,8 +9,10 @@ namespace HAL::UART
 enum class UartDeviceId : uint8_t
 {
     HAL_Uart1 = 0,
-    HAL_Uart3 = 1,
-    HAL_Uart6 = 2,
+    HAL_Uart6 = 1,
+    HAL_Uart7 = 2,
+    HAL_Uart8 = 3,
+    HAL_Uart2 = 4,
     // 可以在此处添加更多UART设备，无需修改接口
     MAX_DEVICES
 };

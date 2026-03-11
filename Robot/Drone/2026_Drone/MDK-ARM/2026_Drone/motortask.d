@@ -93,6 +93,8 @@
   ..\User\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
   ..\Core\Inc\tim.h E:\keli\ARM\ARMCLANG\Bin\..\include\libcxx\algorithm \
   E:\keli\ARM\ARMCLANG\Bin\..\include\libcxx\bit \
+  ..\User\Task\..\core\BSP\IMU\HI12_imu.hpp \
+  ..\User\Task\..\core\BSP\IMU\HI12Base.hpp \
   ..\User\Task\..\core\HAL\UART\uart_hal.hpp \
   ..\User\Task\..\core\HAL\UART\interface\uart_bus.hpp \
   ..\User\Task\..\core\HAL\UART\interface\uart_device.hpp \
@@ -100,6 +102,8 @@
   ..\User\..\user\core\BSP\Motor\MotorBase.hpp \
   ..\User\..\user\core\HAL\CAN\can_hal.hpp \
   ..\User\Task\..\core\BSP\Motor\DM\DmMotor.hpp \
+  ..\User\Task\..\core\Alg\Filter\Filter.hpp \
   ..\User\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_gimbal.hpp \
   ..\User\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp \
-  ..\User\..\User\core\Alg\PID\pid.hpp
+  ..\User\..\User\core\Alg\PID\pid.hpp \
+  E:\keli\ARM\ARMCLANG\Bin\..\include\libcxx\cmath
