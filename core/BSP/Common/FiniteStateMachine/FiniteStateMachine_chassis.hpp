@@ -47,7 +47,7 @@ struct Struct_Status
 /**
  * @brief 有限自动机核心 - 基于左右开关状态切换
  */
-class Class_FSM
+class Chassis_FSM
 {
 public:
     // 状态数组
@@ -131,7 +131,7 @@ private:
 /**
  * @brief 获取当前状态
  */
-inline Enum_Chassis_States Class_FSM::Get_Now_State()
+inline Enum_Chassis_States Chassis_FSM::Get_Now_State()
 {
     return State_chassis;
 }
@@ -139,7 +139,7 @@ inline Enum_Chassis_States Class_FSM::Get_Now_State()
 /**
  * @brief 获取当前状态名称
  */
-inline const char* Class_FSM::Get_Now_State_Name()
+inline const char* Chassis_FSM::Get_Now_State_Name()
 {
     return Status[State_chassis].Name;
 }

@@ -77,7 +77,7 @@ void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online)
     SetState(left, right, equipment_online);
     
     // 根据开关状态组合确定底盘状态
-    if (StateRight != 1 || equipment_online == false)
+    if ((StateRight != 1 && StateLeft != 3 && StateRight != 3) || equipment_online == false)
     {
         State_launch = LAUNCH_STOP;
     }
