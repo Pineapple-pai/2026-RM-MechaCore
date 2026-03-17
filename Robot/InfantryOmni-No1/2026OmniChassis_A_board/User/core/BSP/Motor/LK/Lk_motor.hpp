@@ -76,11 +76,6 @@ namespace BSP::Motor::LK
             {
                 recv_idxs_[i] = recv_ids[i];
                 send_idxs_[i] = send_ids[i];
-                // 初始化多圈角度数据
-                multi_angle_data_[i].total_angle = 0.0;
-                multi_angle_data_[i].last_angle = 0.0;
-                multi_angle_data_[i].allow_accumulate = false;
-                multi_angle_data_[i].is_initialized = false;
             }
         }
 
@@ -97,32 +92,17 @@ namespace BSP::Motor::LK
             this->unit_data_[i].torque_Nm = feedback_[i].current * params.current_to_torque_coefficient;
             this->unit_data_[i].temperature_C = feedback_[i].temperature;
 
-            // 多圈角度计算
-            if (multi_angle_data_[i].allow_accumulate) 
-            {
-                if (!multi_angle_data_[i].is_initialized)
-                {
-                    multi_angle_data_[i].last_angle = this->unit_data_[i].angle_Deg;
-                    multi_angle_data_[i].is_initialized = true;
-                }
-                else
-                {
-                    double last_angle = multi_angle_data_[i].last_angle;
-                    double delta = this->unit_data_[i].angle_Deg - last_angle;
-                    
-                    // 处理360°跳变
-                    if (delta > 180.0) 
-                        delta -= 360.0;
-                    else if (delta < -180.0) 
-                        delta += 360.0;
-                    
-                    multi_angle_data_[i].total_angle += delta;
-                    this->unit_data_[i].add_angle = delta;
-                }
-            }
-            
-            multi_angle_data_[i].last_angle = this->unit_data_[i].angle_Deg;
-            this->unit_data_[i].last_angle = this->unit_data_[i].angle_Deg;
+            double lastData = this->unit_data_[i].last_angle;
+            double Data = this->unit_data_[i].angle_Deg;
+
+            if (Data - lastData < -180) // 正转
+                this->unit_data_[i].add_angle += (360 - lastData + Data) * params.deg_to_real;
+            else if (Data - lastData > 180) // 反转
+                this->unit_data_[i].add_angle += -(360 - Data + lastData) * params.deg_to_real;
+            else
+                this->unit_data_[i].add_angle += (Data - lastData) * params.deg_to_real;
+
+            this->unit_data_[i].last_angle = Data;
         }
 
         HAL::CAN::Frame msd;
@@ -135,7 +115,7 @@ namespace BSP::Motor::LK
         {
             for (uint8_t i = 0; i < N; ++i)
             {
-                if (frame.id == init_address + recv_idxs_[i])
+                if (frame.id == 0x140 + recv_idxs_[i])
                 {
                     const uint8_t* pData = frame.data;
                         
@@ -167,7 +147,7 @@ namespace BSP::Motor::LK
             frame.is_extended_id = false;
             frame.is_remote_frame = false;
             
-            HAL::CAN::get_can_bus_instance().get_can1().send(frame);
+            HAL::CAN::get_can_bus_instance().get_can2().send(frame);
         }
 
        /**
@@ -251,14 +231,15 @@ namespace BSP::Motor::LK
             sendCAN(id);
         }
 
-       /**
-        * @brief 获取多圈角度
-        */
-       float getMultiAngle(uint8_t id)
-       {
-           if (id < 1 || id > N) return 0.0f;
-           return multi_angle_data_[id - 1].total_angle;
-       }
+        void SetReply(uint8_t id, uint8_t motor_index)
+        {
+            if (motor_index < 1 || motor_index > N) return;
+            
+            memset(msd.data, 0, 8);
+            msd.data[0] = 0x9C;
+            
+            sendCAN(id);
+        }
 
        /**
         * @brief 设置是否允许累计多圈角度
@@ -267,15 +248,6 @@ namespace BSP::Motor::LK
        {
            if (id < 1 || id > N) return;
            multi_angle_data_[id - 1].allow_accumulate = allow;
-       }
-
-       /**
-        * @brief 获取是否允许累计多圈角度
-        */
-       bool getAllowAccumulate(uint8_t id)
-       {
-           if (id < 1 || id > N) return false;
-           return multi_angle_data_[id - 1].allow_accumulate;
        }
 
    protected:

@@ -178,7 +178,7 @@ void KeyProcess(bool *alphabet)
  * @param argument 任务参数指针
  */
 extern "C" {
-void Serial(void const * argument)
+void Serival(void const * argument)
 {
     SerialInit();
     for(;;)

@@ -58,6 +58,8 @@
   ..\User\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_gimbal.hpp \
   ..\User\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp \
   ..\User\..\User\core\Alg\PID\pid.hpp \
+  ..\User\..\User\core\Alg\ADRC\adrc.hpp \
+  ..\User\..\User\core\Alg\ADRC\..\ADRC\AdrcBase.hpp \
   ..\User\..\User\core\BSP\Motor\Dji\DjiMotor.hpp \
   ..\User\..\user\core\BSP\Motor\MotorBase.hpp \
   ..\User\..\user\core\HAL\CAN\can_hal.hpp \

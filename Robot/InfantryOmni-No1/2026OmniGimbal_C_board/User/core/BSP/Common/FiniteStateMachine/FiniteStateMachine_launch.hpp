@@ -130,6 +130,11 @@ public:
      */
     void Reset_State_Statistics(Enum_Launch_States state);
 
+    /**
+     * @brief 获取当前状态本次进入后的持续时间
+     */
+    inline uint32_t Get_Current_Duration();
+
 private:
     // 左右开关状态
     uint8_t StateLeft = 2;
@@ -156,6 +161,14 @@ inline Enum_Launch_States Launch_FSM::Get_Now_State()
 inline const char* Launch_FSM::Get_Now_State_Name()
 {
     return Status[State_launch].Name;
+}
+
+/**
+ * @brief 获取当前状态本次进入后的持续时间
+ */
+inline uint32_t Launch_FSM::Get_Current_Duration()
+{
+    return State_Run_Time[State_launch];
 }
 
 #endif

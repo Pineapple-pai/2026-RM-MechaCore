@@ -45,7 +45,7 @@ namespace Alg::CalculationBase
              */
             void ForKinematics()
             {
-                float wheel_vx = 0.0f, wheel_vy = 0.0f, sumVw = 0.0f;
+                float wheel_vx = 0.0f, wheel_vy = 0.0f;
                 // 【核心修复】必须清零上一帧的累加结果！
                 ChassisVx = 0.0f;
                 ChassisVy = 0.0f;
@@ -72,8 +72,8 @@ namespace Alg::CalculationBase
              * @brief 完整的全向轮正向运动学计算
              * @param w0 轮子0的转速
              * @param w1 轮子1的转速
-             * @param w2 轮子2的转速
-             * @param w3 轮子3的转速
+             * @param w2 轮子2 of the转速
+             * @param w3 轮子3 of the转速
              * 
              * 先设置轮子转速，然后执行正向运动学计算
              */            

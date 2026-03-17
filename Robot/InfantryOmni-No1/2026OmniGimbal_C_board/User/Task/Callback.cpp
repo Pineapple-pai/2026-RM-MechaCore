@@ -5,24 +5,30 @@
 extern "C" void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
     HAL::CAN::Frame rx_frame;
-    
-    auto &can1 = HAL::CAN::get_can_bus_instance().get_device(HAL::CAN::CanDeviceId::HAL_Can1);
+    auto &can_bus = HAL::CAN::get_can_bus_instance();
 
-    if (hcan == can1.get_handle())
+    if (hcan->Instance == CAN1)
     {
-        can1.receive(rx_frame);  // receive()内部会自动触发所有注册的回调
+        can_bus.get_can1().receive(rx_frame);
+    }
+    else if (hcan->Instance == CAN2)
+    {
+        can_bus.get_can2().receive(rx_frame);
     }
 }
 // fifo1
 extern "C" void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
     HAL::CAN::Frame rx_frame;
-    
-    auto &can2 = HAL::CAN::get_can_bus_instance().get_device(HAL::CAN::CanDeviceId::HAL_Can2);
+    auto &can_bus = HAL::CAN::get_can_bus_instance();
 
-    if (hcan == can2.get_handle())
+    if (hcan->Instance == CAN1)
     {
-        can2.receive(rx_frame);  // receive()内部会自动触发所有注册的回调
+        can_bus.get_can1().receive(rx_frame);
+    }
+    else if (hcan->Instance == CAN2)
+    {
+        can_bus.get_can2().receive(rx_frame);
     }
 }
 

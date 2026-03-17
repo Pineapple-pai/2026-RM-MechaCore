@@ -1146,3 +1146,141 @@ These source files will be recompiled
 [2026-03-08 14:59:57]	[done]
 	build successfully !
 
+[2026-03-17 17:29:55]	[info] incremental build: 10 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\Callback.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\SerialTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\UITask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\core\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\core\HAL\UART\impl\uart_bus_impl.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\MDK-ARM\..\User\core\HAL\UART\impl\uart_device_impl.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\core\HAL\UART\impl\uart_device_impl.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\core\HAL\UART\interface\uart_bus.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\MDK-ARM\..\User\core\HAL\UART\interface\..\impl\uart_device_impl.hpp' has been changed.
+
+[2026-03-17 17:30:01]	[done]
+	build successfully !
+
+[2026-03-17 17:30:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 17:30:52]	[done]
+	build successfully !
+
+[2026-03-17 17:35:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 17:35:17]	[done]
+	build successfully !
+
+[2026-03-17 17:41:51]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 17:41:53]	[done]
+	build successfully !
+
+[2026-03-17 17:44:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 17:44:45]	[done]
+	build successfully !
+
+[2026-03-17 17:55:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 17:55:12]	[done]
+	build successfully !
+
+[2026-03-17 17:58:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 17:58:38]	[done]
+	build successfully !
+
+[2026-03-17 18:28:53]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\MotorTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\MDK-ARM\startup_stm32f407xx.s': source file has been changed.
+
+[2026-03-17 18:28:58]	[done]
+	build successfully !
+
+[2026-03-17 18:32:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 18:32:20]	[done]
+	build successfully !
+
+[2026-03-17 18:34:48]	[done]
+	build successfully !
+
+[2026-03-17 18:36:17]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\MotorTask.cpp': source file has been changed.
+
+[2026-03-17 18:36:21]	[done]
+	build successfully !
+
+[2026-03-17 18:39:44]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\Core\Src\freertos.c': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\MotorTask.cpp': source file has been changed.
+
+[2026-03-17 18:39:48]	[done]
+	build successfully !
+
+[2026-03-17 18:43:09]	[done]
+	build successfully !
+
+[2026-03-17 18:47:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 18:47:33]	[done]
+	build successfully !
+
+[2026-03-17 18:48:46]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 18:48:49]	[done]
+	build successfully !
+
+[2026-03-17 18:49:09]	[done]
+	build successfully !
+
+[2026-03-17 18:57:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelChassis_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 18:57:53]	[done]
+	build successfully !
+
+[2026-03-17 20:54:29]	[done]
+	build successfully !
+

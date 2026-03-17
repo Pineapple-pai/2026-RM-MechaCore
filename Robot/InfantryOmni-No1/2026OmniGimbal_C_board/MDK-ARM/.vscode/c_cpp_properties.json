@@ -38,6 +38,8 @@
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\Alg\\Filter",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\Alg\\Feedforward",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\Alg\\VMC",
+                "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\Alg\\UtilityFunction",
+                "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\Alg\\ADRC",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\BSP\\SimpleKey",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\BSP\\RemoteControl",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No1\\2026OmniGimbal_C_board\\User\\core\\BSP\\Motor",

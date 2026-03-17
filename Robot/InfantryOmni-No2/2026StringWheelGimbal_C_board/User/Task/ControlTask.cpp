@@ -71,10 +71,10 @@ bool check_online()
 {
     bool isconnected = true;
 
-    // if(!Motor6020.isConnected(1, 6) || !MotorJ4310.isConnected(1, 4) || !Motor3508.isConnected(1, 2) || !Motor3508.isConnected(1, 3) || !Motor3508.isConnected(1, 1))
-    // {
-    //     isconnected = false;
-    // }
+    if(!Motor6020.isConnected(1, 6) || !MotorJ4310.isConnected(1, 4) || !Motor3508.isConnected(1, 2) || !Motor3508.isConnected(1, 3) || !Motor3508.isConnected(1, 1))
+    {
+        isconnected = false;
+    }
 
     if(!DT7.isConnected() || !HI12.isConnected())
     {
@@ -173,14 +173,14 @@ void SetTarget()
                 float angle_delta = mouse_y_input * pitch_sensitivity;
 
                 gimbal_target.target_pitch -= angle_delta;
-                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -140.0f, -110.0f);
+                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -46.0f, -11.4f);
             }
             else
             {
                 gimbal_target.target_yaw = 50.0f * -DT7.get_right_x();  // 速度rpm
                 //gimbal_target.target_yaw = SinExpected(0.001f, 20, 90, 4);
                 gimbal_target.target_pitch -= DT7.get_right_y();        // 角度deg
-                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -140.0f, -110.0f);  // 角度deg
+                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -46.0f, -11.4f);  // 角度deg
             }
             break;
         case VISION:    // 视觉模式
@@ -247,7 +247,6 @@ void SetTarget()
                     {
                         gimbal_target.target_dial += 0.0f;  
                     }
-                    gimbal_target.target_dial -= 40.0f*36.0f; // 只减一次
                 }
                 last_scroll_active = current_scroll_active;
 
@@ -608,7 +607,7 @@ void Control(void const * argument)
         // 热量控制
         float current[2] = {Motor3508.getCurrent(2), Motor3508.getCurrent(3)};
         float velocity[2] = {Motor3508.getVelocityRpm(2), Motor3508.getVelocityRpm(3)}; 
-        heat_control.HeatControl(gimbal_target.target_surgewheel[0], current, velocity, Cboard.GetHeatLimit(), Cboard.GetHeatCool() , 0.001f, 13.0f);
+        heat_control.HeatControl(gimbal_target.target_surgewheel[0], current, velocity, Cboard.GetHeatLimit(), Cboard.GetHeatCool() , 0.001f, 20.0f);
 
         // 1000Hz转200Hz
         control_tick++;

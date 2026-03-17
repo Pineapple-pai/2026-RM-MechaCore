@@ -1,10 +1,10 @@
 #include "MotorTask.hpp"
 
 /* 实例电机 --------------------------------------------------------------------------------------------*/
-BSP::Motor::Dji::GM3508<2> Motor3508(0x200, {2, 3}, 0x200); // 1号ID是2006，避免ID冲突合并到3508中
+BSP::Motor::Dji::GM3508<3> Motor3508(0x200, {1, 2, 3}, 0x200); // 1号ID是2006，避免ID冲突合并到3508中
 BSP::Motor::DM::J4310<2> MotorJ4310(0x00, {2, 6}, {0x01, 0x05}); // 1是pitch，2是yaw
 BSP::Motor::DM::J4340<1> MotorJ4340(0x00, {4}, {0x03});
-BSP::Motor::LK::LK4005<1> MotorLK4005(0x140, {1}, {0x01});
+// BSP::Motor::LK::LK4005<1> MotorLK4005(0x140, {1}, {0x01});
 
 /* CAN接收 ---------------------------------------------------------------------------------------------*/
 /**
@@ -22,7 +22,7 @@ void MotorInit(void)
     can1.register_rx_callback([](const HAL::CAN::Frame &frame) 
     {
         Motor3508.Parse(frame);
-        MotorLK4005.Parse(frame);
+        // MotorLK4005.Parse(frame);
     });
     can2.register_rx_callback([](const HAL::CAN::Frame &frame) 
     {
@@ -32,6 +32,83 @@ void MotorInit(void)
 }
 
 /* 电机发送控制帧 ----------------------------------------------------------------------------------------*/
+template <typename MotorType>
+static void handle_dm_motor_state_machine(MotorType& motor, uint8_t id, uint8_t& step, bool target_enable, float pos, float vel, float kp, float kd, float torq)
+{
+    if (target_enable)
+    {
+        // 如果需要使能，并且已经成功使能且无错误
+        if (motor.getIsenable(id) && motor.getError(id) == 1)
+        {
+            step = 0;
+            motor.ctrl_Mit(id, pos, vel, kp, kd, torq); // 发送正常控制帧
+            return;
+        }
+
+        switch (step)
+        {
+            case 0:
+                motor.ClearErr(id, BSP::Motor::DM::MIT);
+                step = 1;
+                break;
+            case 1:
+                if (motor.getError(id) == 0) // 等待清错成功
+                {
+                    motor.On(id, BSP::Motor::DM::MIT);
+                    step = 2;
+                }
+                break;
+            case 2:
+                if (motor.getError(id) == 1) // 等待使能成功
+                {
+                    motor.setIsenable(id, true);
+                    step = 0;
+                }
+                else if (motor.getError(id) > 1) // 出现错误
+                {
+                    step = 0; // 重启流程
+                }
+                break;
+            default: step = 0; break;
+        }
+    }
+    else
+    {
+        // 如果需要失能，并且已经成功失能且无报错
+        if (!motor.getIsenable(id) && motor.getError(id) == 0)
+        {
+            step = 0;
+            motor.ctrl_Mit(id, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f); // 收数据用（此时非常安全，不打断On）
+            return;
+        }
+
+        switch (step)
+        {
+            case 0:
+                motor.Off(id, BSP::Motor::DM::MIT);
+                step = 1;
+                break;
+            case 1:
+                motor.ClearErr(id, BSP::Motor::DM::MIT);
+                step = 2;
+                break;
+            case 2:
+                if (motor.getError(id) == 0) // 等待失能并清错成功
+                {
+                    motor.setIsenable(id, false);
+                    step = 0;
+                }
+                else if (motor.getError(id) > 1) // 出现错误
+                {
+                    step = 0; // 重启流程
+                }
+                break;
+            default: step = 0; break;
+        }
+    }
+}
+
+
 /**
  * @brief 电机控制函数
  * 
@@ -42,133 +119,88 @@ static void motor_control()
     static uint8_t send_seq = 0;
     send_seq++;
 
-    static uint32_t last_enable_ensure_4310_pitch = 0;
-    static uint32_t last_enable_ensure_4310_yaw = 0;
-    static uint32_t last_enable_ensure_4340 = 0;
     static uint32_t last_enable_ensure_lk4005 = 0;
     static uint8_t re_enable_step_pitch = 0;
     static uint8_t re_enable_step_yaw = 0;
+    static uint8_t re_enable_step_pitch1 = 0;
     static uint8_t re_enable_step_lk = 0;
+
+    bool is_gimbal_active = (gimbal_fsm.Get_Now_State() != STOP);
 
     if (send_seq % 3 == 0) // 第三次
     {
-        // can2
-        if(MotorJ4310.getIsenable(1)) // Pitch2
-        {
-            if(HAL_GetTick() - last_enable_ensure_4310_pitch > 2000)
-            {
-                switch(re_enable_step_pitch)
-                {
-                    case 0:
-                        MotorJ4310.ClearErr(1, BSP::Motor::DM::MIT);
-                        re_enable_step_pitch = 1;
-                        break;
-                    case 1:
-                        MotorJ4310.On(1, BSP::Motor::DM::MIT);
-                        re_enable_step_pitch = 0;
-                        last_enable_ensure_4310_pitch = HAL_GetTick();
-                        break;
-                }
-            }
-            else
-            {
-                MotorJ4310.ctrl_Mit(1, 0.0f, 0.0f, 0.0f, 0.0f, gimbal_output.out_pitch2);
-            }
-        }
-        else
-        {
-            MotorJ4310.ctrl_Mit(1, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-            re_enable_step_pitch = 0;
-        }
+        // can2 (Pitch2)
+        handle_dm_motor_state_machine(MotorJ4310, 
+                                        1, 
+                                        re_enable_step_pitch, 
+                                        is_gimbal_active,
+                                        0.0f, 
+                                        0.0f, 
+                                        0.0f, 
+                                        0.0f, 
+                                        gimbal_output.out_pitch2);
+
     }
     else if(send_seq % 3 == 1)  // 第一次
     {
-        // can2
-        if(MotorJ4310.getIsenable(2)) // yaw
-        {
-            if(HAL_GetTick() - last_enable_ensure_4310_yaw > 2000)
-            {
-                switch(re_enable_step_yaw)
-                {
-                    case 0:
-                        MotorJ4310.ClearErr(2, BSP::Motor::DM::MIT);
-                        re_enable_step_yaw = 1;
-                        break;
-                    case 1:
-                        MotorJ4310.On(2, BSP::Motor::DM::MIT);
-                        re_enable_step_yaw = 0;
-                        last_enable_ensure_4310_yaw = HAL_GetTick();
-                        break;
-                }
-            }
-            else
-            {
-                MotorJ4310.ctrl_Mit(2, 
-                                    gimbal_target.target_yaw, 
-                                    0.0f, 
-                                    yaw_pid.getK(0), 
-                                    yaw_pid.getK(2), 
-                                    0.0f);
-            }
-        }
-        else
-        {
-            MotorJ4310.ctrl_Mit(2, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-            re_enable_step_yaw = 0;
-        }
+        // can2 (Yaw)
+        handle_dm_motor_state_machine(MotorJ4310, 
+                                      2, 
+                                      re_enable_step_yaw, 
+                                      is_gimbal_active,
+                                      0.0f, 
+                                      0.0f, 
+                                      0.0f, 
+                                      0.0f, 
+                                      gimbal_output.out_yaw);
 
-        // can1
-        if(MotorLK4005.getIsenable(1)) // 拨盘
-        {   
-            if(HAL_GetTick() - last_enable_ensure_lk4005 > 2000)
-            {
-                switch(re_enable_step_lk)
-                {
-                    case 0:
-                        MotorLK4005.ClearErr(1, 1);
-                        re_enable_step_lk = 1;
-                        break;
-                    case 1:
-                        MotorLK4005.Off(1, 1);
-                        re_enable_step_lk = 2;
-                        break;
-                    case 2:
-                        MotorLK4005.On(1, 1);
-                        re_enable_step_lk = 0;
-                        last_enable_ensure_lk4005 = HAL_GetTick();
-                        break;
-                }
-            }
-            else
-            {
-                MotorLK4005.ctrl_Torque(1, 1, launch_output.out_dial);
-            }
-        }
-        else
-        {
-            MotorLK4005.SetReply(1, 1);
-            re_enable_step_lk = 0;
-        }
+        // can1 (拨盘)
+        // if(MotorLK4005.getIsenable(1))
+        // {   
+        //     if(HAL_GetTick() - last_enable_ensure_lk4005 > 2000)
+        //     {
+        //         switch(re_enable_step_lk)
+        //         {
+        //             case 0:
+        //                 MotorLK4005.ClearErr(1, 1);
+        //                 re_enable_step_lk = 1;
+        //                 break;
+        //             case 1:
+        //                 MotorLK4005.Off(1, 1);
+        //                 re_enable_step_lk = 2;
+        //                 break;
+        //             case 2:
+        //                 MotorLK4005.On(1, 1);
+        //                 re_enable_step_lk = 0;
+        //                 last_enable_ensure_lk4005 = HAL_GetTick();
+        //                 break;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         MotorLK4005.ctrl_Torque(1, 1, launch_output.out_dial);
+        //     }
+        // }
+        // else
+        // {
+        //     MotorLK4005.SetReply(1, 1);
+        //     re_enable_step_lk = 0;
+        // }
     }
     else if(send_seq % 3 == 2)  // 第二次， pitch1
     {
-        // can2
-        if(MotorJ4340.getIsenable(1))
-        {
-            if(HAL_GetTick() - last_enable_ensure_4340 > 2000)
-            {
-                MotorJ4340.On(1, BSP::Motor::DM::MIT);
-                last_enable_ensure_4340 = HAL_GetTick();
-            }
+        // can2 (Pitch1)
+        handle_dm_motor_state_machine(MotorJ4340, 
+                                      1, 
+                                      re_enable_step_pitch1, 
+                                      is_gimbal_active,
+                                      0.0f, 
+                                      0.0f, 
+                                      0.0f, 
+                                      0.0f, 
+                                      gimbal_output.out_pitch1);
 
-            MotorJ4340.ctrl_Mit(1, 0.0f, 0.0f, 0.0f, 0.0f, gimbal_output.out_pitch1);
-        }
-        else
-        {
-            MotorJ4340.ctrl_Mit(1, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-        }
-
-        // can1
+        // can1 (摩擦轮)
         Motor3508.setCAN(static_cast<int16_t>(launch_output.out_surgewheel[0]), 2);
         Motor3508.setCAN(static_cast<int16_t>(launch_output.out_surgewheel[1]), 3);
         Motor3508.sendCAN();

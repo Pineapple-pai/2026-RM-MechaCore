@@ -49,9 +49,9 @@
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\User\\core\\BSP\\Motor\\Dji",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\User\\core\\BSP\\RemoteControl",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\User\\Task",
+                "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\User\\core\\APP\\Heat_Detector",
                 "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\Middlewares\\ST\\STM32_USB_Device_Library\\Core\\Src",
-                "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\Middlewares\\ST\\STM32_USB_Device_Library\\Class\\CDC\\Src",
-                "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\User\\core\\APP\\Heat_Detector"
+                "f:\\RCIA\\2026-RM-MechaCore\\Robot\\InfantryOmni-No2\\2026StringWheelGimbal_C_board\\Middlewares\\ST\\STM32_USB_Device_Library\\Class\\CDC\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

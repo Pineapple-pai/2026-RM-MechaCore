@@ -12,8 +12,8 @@
 "2026stringwheelgimbal_c_board\stm32f4xx_hal_timebase_tim.o"
 "2026stringwheelgimbal_c_board\stm32f4xx_hal_tim.o"
 "2026stringwheelgimbal_c_board\stm32f4xx_hal_tim_ex.o"
-"2026stringwheelgimbal_c_board\stm32f4xx_hal_pcd_ex.o"
 "2026stringwheelgimbal_c_board\stm32f4xx_hal_pcd.o"
+"2026stringwheelgimbal_c_board\stm32f4xx_hal_pcd_ex.o"
 "2026stringwheelgimbal_c_board\stm32f4xx_ll_usb.o"
 "2026stringwheelgimbal_c_board\stm32f4xx_hal_rcc.o"
 "2026stringwheelgimbal_c_board\stm32f4xx_hal_rcc_ex.o"
@@ -99,6 +99,8 @@
 "2026stringwheelgimbal_c_board\motortask_1.o"
 "2026stringwheelgimbal_c_board\serialtask.o"
 "2026stringwheelgimbal_c_board\serialtask_1.o"
+"2026stringwheelgimbal_c_board\heat_control_private.o"
+"2026stringwheelgimbal_c_board\heat_control_private_1.o"
 "2026stringwheelgimbal_c_board\usb_device.o"
 "2026stringwheelgimbal_c_board\usbd_desc.o"
 "2026stringwheelgimbal_c_board\usbd_cdc_if.o"
@@ -107,8 +109,6 @@
 "2026stringwheelgimbal_c_board\usbd_ctlreq.o"
 "2026stringwheelgimbal_c_board\usbd_ioreq.o"
 "2026stringwheelgimbal_c_board\usbd_cdc.o"
-"2026stringwheelgimbal_c_board\heat_control_private.o"
-"2026stringwheelgimbal_c_board\heat_control_private_1.o"
 --strict --scatter "2026StringWheelGimbal_C_board\2026StringWheelGimbal_C_board.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

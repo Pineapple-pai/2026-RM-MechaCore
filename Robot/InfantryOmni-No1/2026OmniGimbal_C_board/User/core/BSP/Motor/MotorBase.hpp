@@ -18,6 +18,7 @@ namespace BSP::Motor
 
             double velocity_Rad; // 单位弧度速度
             double velocity_Rpm; // 单位rpm
+            double velocity_Deg; // 单位度速度
 
             double current_A;     // 单位安培
             double torque_Nm;     // 单位牛米
@@ -33,10 +34,7 @@ namespace BSP::Motor
         BSP::WATCH_STATE::StateWatch state_watch_[N];
 
         virtual void Parse(const HAL::CAN::Frame &frame) = 0;
-<<<<<<< Updated upstream:Robot/InfantryOmni-No1/2026OmniChassis_C_board/user/core/BSP/Motor/MotorBase.hpp
-=======
         bool is_Enable[N] = {false};
->>>>>>> Stashed changes:Robot/InfantryOmni-No1/2026OmniGimbal_C_board/User/core/BSP/Motor/MotorBase.hpp
 
     public:
         MotorBase(uint32_t timeThreshold = 100)
@@ -146,6 +144,17 @@ namespace BSP::Motor
         }
 
         /**
+         * @brief 获取速度    单位：(°/s)
+         * 这里是输出轴的速度，而不是转子速度
+         * @param id CAN id
+         * @return float
+         */
+        float getVelocityDegs(uint8_t id)
+        {
+            return this->unit_data_[id - 1].velocity_Deg;
+        }
+
+        /**
          * @brief 获取电流值    单位：(A)
          *
          * @param id CAN id
@@ -195,8 +204,6 @@ namespace BSP::Motor
 
             return 0; // 所有电机都在线
         }
-<<<<<<< Updated upstream:Robot/InfantryOmni-No1/2026OmniChassis_C_board/user/core/BSP/Motor/MotorBase.hpp
-=======
 
         /**
          * @brief 获取电机使能状态
@@ -218,7 +225,6 @@ namespace BSP::Motor
             this->is_Enable[id - 1] = enable;
         }
 
->>>>>>> Stashed changes:Robot/InfantryOmni-No1/2026OmniGimbal_C_board/User/core/BSP/Motor/MotorBase.hpp
     };
 } // namespace BSP::Motor
 

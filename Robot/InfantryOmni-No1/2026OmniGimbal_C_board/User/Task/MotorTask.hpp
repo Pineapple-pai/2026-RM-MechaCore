@@ -9,6 +9,7 @@ extern ALG::PID::PID yaw_angle_pid;
 extern ALG::PID::PID yaw_velocity_pid;
 extern ALG::PID::PID pitch_manual_pid;
 extern ALG::PID::PID pitch_vision_pid; 
+extern ALG::PID::PID pitch2_coder_pid;
 extern ALG::PID::PID dial_pid;
 extern ALG::PID::PID surgewheel_pid[2];
 extern ALG::PID::PID dm4310;

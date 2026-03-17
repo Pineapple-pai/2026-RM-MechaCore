@@ -1,4 +1,4 @@
-#ifndef COMMUNICATIONTASK_HPP
+﻿#ifndef COMMUNICATIONTASK_HPP
 #define COMMUNICATIONTASK_HPP
 
 #include "FreeRTOS.h"
@@ -6,9 +6,25 @@
 #include "../User/Task/SerialTask.hpp"
 #include "../User/core/BSP/Common/StateWatch/state_watch.hpp"
 #include "../User/core/BSP/Common/StateWatch/buzzer_manager.hpp"
+#include <cstdint>
 
 extern uint8_t BoardRx[4];
 extern uint8_t send_str2[sizeof(float) * 8]; 
+extern float a;
+
+typedef struct 
+{
+    uint8_t equipment_online;
+    uint8_t change;
+    float only_to_auto_time;
+    uint8_t is_vision;
+    uint8_t is_shoot;
+    uint8_t is_jamming;
+    uint8_t alphabet[28];
+    int32_t launch_state;
+} LaunchFSMInput;
+
+extern LaunchFSMInput launch_fsm_input;
 
 class BoardCommunication
 {
@@ -55,8 +71,8 @@ class BoardCommunication
         }
     private:
         BSP::WATCH_STATE::StateWatch statewatch_;
-        uint16_t shooter_barrel_heat_limit; // 枪口热量上限
-        uint16_t shooter_barrel_cooling_value; // 热量冷却
+        uint16_t shooter_barrel_heat_limit; // 鏋彛鐑噺涓婇檺
+        uint16_t shooter_barrel_cooling_value; // 鐑噺鍐峰嵈
 };
 
 
@@ -110,8 +126,8 @@ class Vision
             uint8_t aim_y;
         };
 
-        float pitch_angle_; //度
-        float yaw_angle_;   //度
+        float pitch_angle_; //搴?
+        float yaw_angle_;   //搴?
 
         Frame frame;
         Tx_Gimbal tx_gimbal;
@@ -127,8 +143,8 @@ class Vision
         bool fire_flag;
         uint32_t fire_num;
 
-        bool vision_flag; // 超过一定范围就置1
-        uint8_t vision_mode;  // 0：停火，1：单发，2：连发
+        bool vision_flag; // 瓒呰繃涓€瀹氳寖鍥村氨缃?
+        uint8_t vision_mode;  // 0锛氬仠鐏紝1锛氬崟鍙戯紝2锛氳繛鍙?
 
     public:
         void Data_send();
@@ -202,3 +218,6 @@ class Vision
 };
 
 #endif
+
+
+

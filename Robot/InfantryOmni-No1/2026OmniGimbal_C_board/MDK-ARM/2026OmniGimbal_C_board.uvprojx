@@ -809,6 +809,31 @@
               <FileType>8</FileType>
               <FilePath>..\User\core\Alg\VMC\VMC.hpp</FilePath>
             </File>
+            <File>
+              <FileName>SlopePlanning.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\UtilityFunction\SlopePlanning.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SlopPlanning.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\UtilityFunction\SlopPlanning.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>adrc.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\ADRC\adrc.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>adrc.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\ADRC\adrc.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>AdrcBase.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\ADRC\AdrcBase.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

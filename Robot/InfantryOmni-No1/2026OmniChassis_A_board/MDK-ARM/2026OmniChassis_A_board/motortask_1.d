@@ -59,6 +59,7 @@
   ..\User\..\User\core\Alg\PID\pid.hpp \
   ..\User\..\User\core\BSP\Motor\Dji\DjiMotor.hpp \
   ..\User\..\user\core\BSP\Motor\MotorBase.hpp \
+  ..\User\..\User\core\BSP\Motor\LK\Lk_motor.hpp \
   ..\User\..\User\core\Alg\UtilityFunction\SlopePlanning.hpp \
   ..\User\..\User\core\Alg\PowerControl\PowerControl.hpp \
   ..\User\..\User\core\Alg\PowerControl\PowerControlBase.hpp

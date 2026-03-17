@@ -59,7 +59,9 @@
   ..\User\core\BSP\SimpleKey\SimpleKey.hpp \
   ..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_gimbal.hpp \
   ..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp \
-  ..\User\core\Alg\PID\pid.hpp ..\User\core\BSP\Motor\Dji\DjiMotor.hpp \
+  ..\User\core\Alg\PID\pid.hpp ..\User\core\Alg\ADRC\adrc.hpp \
+  ..\User\core\Alg\ADRC\..\ADRC\AdrcBase.hpp \
+  ..\User\core\BSP\Motor\Dji\DjiMotor.hpp \
   ..\user\core\BSP\Motor\MotorBase.hpp \
   ..\User\core\BSP\Motor\DM\DmMotor.hpp \
   ..\User\core\BSP\Motor\LK\Lk_motor.hpp \

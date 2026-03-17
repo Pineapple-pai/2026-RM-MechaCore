@@ -22,6 +22,7 @@ void BSP::WATCH_STATE::StateWatch::UpdateTime()
 void BSP::WATCH_STATE::StateWatch::UpdateLastTime()
 {
     last_update_time_ = HAL_GetTick();
+    is_first_update_received_ = true;
 }
 
 /**
@@ -33,7 +34,14 @@ void BSP::WATCH_STATE::StateWatch::UpdateLastTime()
  */
 void BSP::WATCH_STATE::StateWatch::CheckStatus()
 {
-    // 处理计时器溢出情况
+    // 如果还没接收到第一次数据，直接判定为离线
+    if (!is_first_update_received_)
+    {
+        status_ = Status::OFFLINE;
+        return;
+    }
+
+    // 处理计时器溢情况
     if (update_time_ < last_update_time_)
     {
         // 时间已经溢出，从0重新计数

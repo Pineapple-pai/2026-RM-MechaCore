@@ -30,10 +30,10 @@ namespace BSP::WATCH_STATE
              * @brief 构造函数
              * @param TimeThreshold 超时时间阈值（毫秒）
              */
-            StateWatch() : timeout_ms_(100), update_time_(0), last_update_time_(0), status_(Status::OFFLINE) {}
+            StateWatch() : timeout_ms_(100), update_time_(0), last_update_time_(0), status_(Status::OFFLINE), is_first_update_received_(false) {}
 
             StateWatch(uint32_t TimeThreshold)
-                : timeout_ms_(TimeThreshold), update_time_(0), last_update_time_(0), status_(Status::OFFLINE) {}
+                : timeout_ms_(TimeThreshold), update_time_(0), last_update_time_(0), status_(Status::OFFLINE), is_first_update_received_(false) {}
 
 
             /**
@@ -72,6 +72,7 @@ namespace BSP::WATCH_STATE
             uint32_t update_time_;            // 当前数据更新时间
             uint32_t last_update_time_;       // 上次数据更新时间
             Status status_;                   // 当前设备状态
+            bool is_first_update_received_;   // 是否已经接收到第一次数据
     };
 }
 

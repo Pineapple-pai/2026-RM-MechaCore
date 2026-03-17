@@ -63,7 +63,7 @@
   ..\User\core\BSP\Motor\DM\DmMotor.hpp \
   ..\User\core\APP\Heat_Detector\Heat_Control_Private.hpp \
   ..\USB_DEVICE\App\usbd_cdc_if.h \
-  ..\USB_DEVICE\App\..\..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h \
+  ..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h \
   ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h \
   ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h \
   ..\USB_DEVICE\Target\usbd_conf.h \

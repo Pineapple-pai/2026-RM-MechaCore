@@ -26,30 +26,30 @@ BSP::Key::SimpleKey Mouse_right;
 /* 设备通讯回调与数据解析 -------------------------------------------------------------------------------------*/
 void SerivalInit()
 {
-    // auto &uart8 = HAL::UART::get_uart_bus_instance().get_device(HAL::UART::UartDeviceId::HAL_Uart8);    // 裁判系统
-    auto &uart1 = HAL::UART::get_uart_bus_instance().get_device(HAL::UART::UartDeviceId::HAL_Uart1);  // 遥控器
+    auto &uart8 = HAL::UART::get_uart_bus_instance().get_device(HAL::UART::UartDeviceId::HAL_Uart8);    // 裁判系统
+    // auto &uart1 = HAL::UART::get_uart_bus_instance().get_device(HAL::UART::UartDeviceId::HAL_Uart1);  // 遥控器
     
-    // HAL::UART::Data uart8_rx_buffer{referee_buffer, 1};
-    HAL::UART::Data uart1_rx_buffer{DT7Rx_buffer, 18};
+    HAL::UART::Data uart8_rx_buffer{referee_buffer, 1};
+    // HAL::UART::Data uart1_rx_buffer{DT7Rx_buffer, 18};
 
-    // uart8.receive(uart8_rx_buffer);
-    uart1.receive_dma_idle(uart1_rx_buffer);
+    uart8.receive(uart8_rx_buffer);
+    // uart1.receive_dma_idle(uart1_rx_buffer);
 
-    // uart8.register_rx_callback([](const HAL::UART::Data &data) 
-    // {
-
-    //     if(data.size == 1 && data.buffer != nullptr)
-    //     {
-    //         RM_RefereeSystem::RM_RefereeSystemParse(data.buffer);
-    //     }
-    // });
-    uart1.register_rx_callback([](const HAL::UART::Data &data) 
+    uart8.register_rx_callback([](const HAL::UART::Data &data) 
     {
-        if(data.size == 18 && data.buffer != nullptr)
+
+        if(data.size == 1 && data.buffer != nullptr)
         {
-            DT7.parseData(data.buffer);
+            RM_RefereeSystem::RM_RefereeSystemParse(data.buffer);
         }
     });
+    // uart1.register_rx_callback([](const HAL::UART::Data &data) 
+    // {
+    //     if(data.size == 18 && data.buffer != nullptr)
+    //     {
+    //         DT7.parseData(data.buffer);
+    //     }
+    // });
 }
 
 /* 键鼠逻辑处理 ---------------------------------------------------------------------------------------------*/

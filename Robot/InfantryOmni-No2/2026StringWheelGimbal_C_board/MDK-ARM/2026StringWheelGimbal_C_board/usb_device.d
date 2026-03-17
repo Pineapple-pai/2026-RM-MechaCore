@@ -28,14 +28,11 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pcd.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_usb.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pcd_ex.h \
-  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h \
-  ..\User\..\USB_DEVICE\Target\usbd_conf.h ..\Core\Inc\main.h \
-  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\\Core\Inc\usbd_core.h \
-  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\\Core\Inc\usbd_def.h \
-  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\\Core\Inc\usbd_ioreq.h \
-  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\\Core\Inc\usbd_ctlreq.h \
+  ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h \
+  ..\USB_DEVICE\Target\usbd_conf.h ..\Core\Inc\main.h \
+  ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h \
+  ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h \
+  ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h \
   ..\USB_DEVICE\App\usbd_desc.h \
-  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h \
-  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h \
-  ..\USB_DEVICE\App\usbd_cdc_if.h \
-  ..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h
+  ..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h \
+  ..\USB_DEVICE\App\usbd_cdc_if.h

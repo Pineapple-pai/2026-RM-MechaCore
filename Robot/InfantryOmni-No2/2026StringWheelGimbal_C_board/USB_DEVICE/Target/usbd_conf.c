@@ -23,7 +23,6 @@
 #include "stm32f4xx_hal.h"
 #include "../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
 #include "../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h"
-
 #include "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h"
 
 /* USER CODE BEGIN Includes */

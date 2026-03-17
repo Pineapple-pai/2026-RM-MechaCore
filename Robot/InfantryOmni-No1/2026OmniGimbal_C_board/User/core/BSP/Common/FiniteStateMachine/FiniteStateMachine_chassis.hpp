@@ -87,7 +87,7 @@ public:
      * @param left 左开关状态
      * @param right 右开关状态
      */
-    void StateUpdate(uint8_t left, uint8_t right, bool equipment_online, bool vision_flag, bool transform_flag);
+    void StateUpdate(uint8_t left, uint8_t right, bool equipment_online, bool *alphabet);
 
     /**
      * @brief 定时更新函数（用于时间统计）
@@ -150,12 +150,5 @@ inline const char* Chassis_FSM::Get_Now_State_Name()
     return Status[State_chassis].Name;
 }
 
-/**
- * @brief 获取当前状态本次进入后的持续时间（单位取决于TIM_Update调用频率）
- */
-inline uint32_t Gimbal_FSM::Get_Current_Duration()
-{
-    return State_Run_Time[State_gimbal];
-}
 
 #endif

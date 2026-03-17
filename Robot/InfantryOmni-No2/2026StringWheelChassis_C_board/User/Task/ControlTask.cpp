@@ -7,14 +7,14 @@ extern bool alphabet[28];
 
 /* 宏定义 --------------------------------------------------------------------------------------------------*/
 #define PI_ 3.1415926535897932384626433832795
-#define STANDARD 0.22f  // 正方向（弧度）
+#define STANDARD 3.35103f  // 正方向（弧度）
 
 /* 有限状态机 -----------------------------------------------------------------------------------------------*/
 Chassis_FSM chassis_fsm;    // 底盘有限状态机
 
 /* 底盘解算 -------------------------------------------------------------------------------------------------*/
 float wheel_azimuth[4] = {7*PI_/4, PI_/4, 3*PI_/4, 5*PI_/4};                // 安装位置
-float phase_offset[4] = {-1.2954468f, -2.8209907f, 2.9222334f, 1.3038837f}; // 舵向初始角
+float phase_offset[4] = {1.84614585f, 4.4715335f, 6.06382605f, 4.44547635f}; // 舵向初始角
 Alg::CalculationBase::String_IK string_ik(0.17f, 0.055f, wheel_azimuth, phase_offset);  // 运动学逆解算
 Alg::CalculationBase::String_FK string_fk(0.17f, 0.055f, wheel_azimuth, phase_offset);  // 运动学正解算
 Alg::CalculationBase::String_ID string_id(0.17f, 0.055f, wheel_azimuth, phase_offset);  // 动力学逆解算
@@ -87,13 +87,13 @@ Output_chassis chassis_output;  // 底盘输出
 bool check_online()
 {
     bool isconnected = true;
-    // for(int i = 0; i < 4; i++)
-    // {
-    //     if(!Motor3508.isConnected(i+1, i+1) || !Motor6020.isConnected(i+1, i+5))
-    //     {
-    //         isconnected = false;
-    //     }
-    // }
+    for(int i = 0; i < 4; i++)
+    {
+        if(!Motor3508.isConnected(i+1, i+1) || !Motor6020.isConnected(i+1, i+5))
+        {
+            isconnected = false;
+        }
+    }
 
     if(/*!Cboard.isConnected() ||*/ !DT7.isConnected())
     {
@@ -163,7 +163,7 @@ void CalculateFollow()
     // 死区处理 (防止小误差震荡)
     if(fabs(follow_error) < 0.1f) follow_error = 0.0f;
     
-    follow_pid.UpDate(0.0f, follow_error);
+    follow_pid.UpDate(follow_error, 0.0f);
 }
 
 /**

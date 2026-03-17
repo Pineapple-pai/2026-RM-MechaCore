@@ -18,7 +18,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h"
-
 #ifdef USE_USBD_COMPOSITE
 #include "usbd_composite_builder.h"
 #endif /* USE_USBD_COMPOSITE */

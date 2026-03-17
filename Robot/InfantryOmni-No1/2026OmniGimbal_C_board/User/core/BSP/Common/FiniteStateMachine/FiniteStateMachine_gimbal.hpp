@@ -30,6 +30,7 @@ enum Enum_Gimbal_States
     VISION,        // 视觉状态
     MANUAL,        // 普通状态
     KEYBOARD,      // 键盘控制状态
+    TRANSFORM,     // 变形状态
     STATUS_COUNT   // 状态数量
 };
 
@@ -86,7 +87,7 @@ public:
      * @param left 左开关状态
      * @param right 右开关状态
      */
-    void StateUpdate(uint8_t left, uint8_t right, bool equipment_online, bool vision_flag);
+    void StateUpdate(uint8_t left, uint8_t right, bool equipment_online, bool vision_flag, bool transform_flag);
 
     /**
      * @brief 定时更新函数（用于时间统计）
@@ -116,6 +117,11 @@ public:
      */
     void Reset_State_Statistics(Enum_Gimbal_States state);
 
+    /**
+     * @brief 获取当前状态本次进入后的持续时间
+     */
+    inline uint32_t Get_Current_Duration();
+
 private:
     // 左右开关状态
     uint8_t StateLeft = 2;
@@ -142,6 +148,14 @@ inline Enum_Gimbal_States Gimbal_FSM::Get_Now_State()
 inline const char* Gimbal_FSM::Get_Now_State_Name()
 {
     return Status[State_gimbal].Name;
+}
+
+/**
+ * @brief 获取当前状态本次进入后的持续时间
+ */
+inline uint32_t Gimbal_FSM::Get_Current_Duration()
+{
+    return State_Run_Time[State_gimbal];
 }
 
 #endif
