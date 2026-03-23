@@ -70,11 +70,11 @@ Output_launch launch_output;    // 发射机构输出
 bool check_online()
 {
     bool isconnected = true;
-
-    if(!Motor6020.isConnected(1, 6) || !MotorJ4310.isConnected(1, 4) || !Motor3508.isConnected(1, 2) || !Motor3508.isConnected(1, 3) || !Motor3508.isConnected(1, 1))
-    {
-        isconnected = false;
-    }
+    // 上场要注释掉。不然发射机构掉电云台会失能，过不了检录。
+    // if(!Motor6020.isConnected(1, 6) || !MotorJ4310.isConnected(1, 4) || !Motor3508.isConnected(1, 2) || !Motor3508.isConnected(1, 3) || !Motor3508.isConnected(1, 1))
+    // {
+    //     isconnected = false;
+    // }
 
     if(!DT7.isConnected() || !HI12.isConnected())
     {
@@ -124,7 +124,7 @@ float hz_to_angle(float fire_hz)
 {
     const int slots_per_rotation = 9;                         // 拨盘一圈9个弹
     const float angle_per_slot = 360.0f / slots_per_rotation; // 360/9 = 40度 (出一个蛋需要的角度)
-    const float control_period = 0.001f;                      // 5ms (200Hz的控制频率)
+    const float control_period = 0.005f;                      // 5ms (200Hz的控制频率)
     // 公式推导：
     // 1. 每秒需要出的蛋数 = fire_hz
     // 2. 每秒需要转过的角度 = fire_hz * 40度
@@ -173,20 +173,20 @@ void SetTarget()
                 float angle_delta = mouse_y_input * pitch_sensitivity;
 
                 gimbal_target.target_pitch -= angle_delta;
-                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -46.0f, -11.4f);
+                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -20.0f, 20.0f);
             }
             else
             {
                 gimbal_target.target_yaw = 50.0f * -DT7.get_right_x();  // 速度rpm
                 //gimbal_target.target_yaw = SinExpected(0.001f, 20, 90, 4);
                 gimbal_target.target_pitch -= DT7.get_right_y();        // 角度deg
-                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -46.0f, -11.4f);  // 角度deg
+                gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -20.0f, 20.0f);  // 角度deg
             }
             break;
         case VISION:    // 视觉模式
-            gimbal_target.target_yaw = vision_filter_yaw.filter(vision.getTarYaw());        // 角度deg TD滤波
-            gimbal_target.target_pitch = vision_filter_pitch.filter(vision.getTarPitch());  // 角度deg TD滤波
-            gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -140.0f, -110.0f);  // 角度deg
+            gimbal_target.target_yaw = -vision.getTarYaw();        // 角度deg TD滤波
+            gimbal_target.target_pitch = vision.getTarPitch();  // 角度deg TD滤波
+            gimbal_target.target_pitch = std::clamp(gimbal_target.target_pitch, -20.0f, 20.0f);  // 角度deg
             break;
         default:
             gimbal_target.target_yaw = 0.0f;
@@ -275,7 +275,7 @@ void SetTarget()
             }
             break;
         case LAUNCH_JAM:
-            gimbal_target.target_dial = 3000; // 直接给控制电流开环
+            gimbal_target.target_dial = 5000; // 直接给控制电流开环
             gimbal_target.target_surgewheel[0] = 6000.0f;
             gimbal_target.target_surgewheel[1] = -6000.0f;
             break;
@@ -328,8 +328,8 @@ void gimbal_stop()
  */
 void gimbal_manual()
 {
-    // 4310使能
-    if(!MotorJ4310.getIsenable())
+    // 4310使能：如果达妙电机硬件反馈状态不是1（使能态），就一直发唤醒帧
+    if(MotorJ4310.GetErr(1) != 1)
     {
         MotorJ4310.On(1, BSP::Motor::DM::MIT);
         MotorJ4310.setIsenable(true);
@@ -387,14 +387,21 @@ void gimbal_manual()
 void gimbal_vision()
 {
     // 4310使能
-    if(!MotorJ4310.getIsenable())
+    if(MotorJ4310.GetErr(1) != 1)
     {
         MotorJ4310.On(1, BSP::Motor::DM::MIT);
         MotorJ4310.setIsenable(true);
     }
 
     // Yaw 角速度PID
-    yaw_angle_pid.UpDate(gimbal_target.target_yaw, HI12.GetAddYaw());
+    float current_yaw = HI12.GetAngle(2);
+    float err_yaw = gimbal_target.target_yaw - current_yaw;
+    
+    // 过零处理，保证走最短路径 (适用于[-180, 180]的突变)
+    while (err_yaw > 180.0f)  err_yaw -= 360.0f;
+    while (err_yaw < -180.0f) err_yaw += 360.0f;
+    
+    yaw_angle_pid.UpDate(current_yaw + err_yaw, current_yaw);
     yaw_velocity_pid.UpDate(yaw_angle_pid.getOutput(), HI12.GetGyroRPM(2));
     // 速度前馈补偿
     velocity_forward.VelocityFeedforward(gimbal_target.target_yaw);
@@ -418,7 +425,20 @@ void gimbal_vision()
  */
 void main_loop_gimbal(uint8_t left_sw, uint8_t right_sw, bool is_online) 
 {   
+    static int last_gimbal_state = -1;
     gimbal_fsm.StateUpdate(left_sw, right_sw, is_online, vision.getVisionFlag());
+    
+    // 状态机发生切换
+    if (gimbal_fsm.Get_Now_State() != last_gimbal_state)
+    {
+        // 跨越模式时清空陈旧的积分（I）和微分（D）误差，防止参数跳变导致“疯头”
+        yaw_pid.reset();
+        yaw_angle_pid.reset();
+        yaw_velocity_pid.reset();
+        
+        last_gimbal_state = gimbal_fsm.Get_Now_State();
+    }
+
     SetTarget();
 
     switch(gimbal_fsm.Get_Now_State()) 
@@ -602,12 +622,19 @@ void Control(void const * argument)
         // 更新蜂鸣器管理器，处理队列中的响铃请求
         BSP::WATCH_STATE::BuzzerManagerSimple::getInstance().update();
         
+        // 达妙电机（J4310）掉电离线时，自动清除软件使能标志位。
+        // 这样在 24V 恢复供电复活时，gimbal_manual() 就会重新发送 On() 唤醒电机。
+        // if (!MotorJ4310.isConnected(1, 4))
+        // {
+        //     MotorJ4310.setIsenable(false);
+        // }
+        
         // 1kHz 采样 (捕捉信号)
         
         // 热量控制
         float current[2] = {Motor3508.getCurrent(2), Motor3508.getCurrent(3)};
         float velocity[2] = {Motor3508.getVelocityRpm(2), Motor3508.getVelocityRpm(3)}; 
-        heat_control.HeatControl(gimbal_target.target_surgewheel[0], current, velocity, Cboard.GetHeatLimit(), Cboard.GetHeatCool() , 0.001f, 20.0f);
+        heat_control.HeatControl(gimbal_target.target_surgewheel[0], current, velocity, Cboard.GetHeatLimit(), Cboard.GetHeatCool(), 0.001f, 15.0f);
 
         // 1000Hz转200Hz
         control_tick++;

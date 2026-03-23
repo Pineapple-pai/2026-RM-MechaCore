@@ -45,7 +45,7 @@ Alg::Feedforward::GimbalFullCompensation gimbal_yaw(0.0f, 0.005f, 0.038062f, 0.1
 Alg::Feedforward::UDE ude_yaw(-0.39f, 6.6f);  // UDE前馈
 
 Alg::Feedforward::Gravity gravity_forward_pitch1(0.0f, 0.0f);   // pitch1重补
-Alg::Feedforward::Gravity gravity_forward_pitch2(0.3f, 0.0f);   // pitch2重补
+Alg::Feedforward::Gravity gravity_forward_pitch2(0.0f, 0.0f);   // pitch2重补
 
 /* 控制器 ---------------------------------------------------------------------------------------------------*/
 ALG::ADRC::FirstLADRC yaw_adrc(25.0f, 70.0f, 105.0f, 0.005f, 800.0f, 3.0f);     // 普通模式Yaw 速控ADRC
@@ -55,7 +55,7 @@ ALG::PID::PID yaw_transform_velocity_pid(45.0f, 0.5f, 0.0f, 16384.0f, 2500.0f, 1
 
 ALG::VMC::VMC doublePitch(0.14f, 0.0f, 2000.0f, 900.0f, 100.0f, 35.0f); // Pitch1 VMC
 
-ALG::ADRC::FirstLADRC pitch2_adrc(50.0f, 165.0f, 300.0f, 0.005f, 450.0f, 3.0f);
+ALG::ADRC::FirstLADRC pitch2_adrc(50.0f, 165.0f, 400.0f, 0.005f, 450.0f, 3.0f);
 ALG::PID::PID pitch2_transform_angle_pid(13.0f, 1.0f, 0.0f, 16384.0f, 30.0f, 5.0f);
 ALG::PID::PID pitch2_transform_velocity_pid(35.0f, 1.0f, 0.0f, 16384.0f, 2500.0f, 500.0f);
 

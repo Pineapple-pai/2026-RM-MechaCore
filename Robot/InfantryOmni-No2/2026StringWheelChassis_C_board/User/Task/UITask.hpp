@@ -204,79 +204,79 @@ namespace ui_ns
                 RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
                 add(RM_RefereeSystem::RM_RefereeSystemSetCircle((char*)"W", 0, 954, 495, 6));
 
-                // pitch初始化 (绘制pitch指示)
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorAmaranth);
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"power", 1, 100, 100 + 2, 960, 540, 380, 380));
+                // // pitch初始化 (绘制pitch指示)
+                // RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorAmaranth);
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"power", 1, 100, 100 + 2, 960, 540, 380, 380));
 
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"limPwr", 1, 120, 120 + 2, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"limPwr", 1, 120, 120 + 2, 960, 540, 380, 380));
 
-                // 超电初始化
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"cd_Ini", 3, 271, 310, 960, 540, 380, 380));
+                // // 超电初始化
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"cd_Ini", 3, 271, 310, 960, 540, 380, 380));
 
-                // 小陀螺初始化
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"gy_Ini", 2, 0, 360, 1450, 750, 80, 80));
+                // // 小陀螺初始化
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"gy_Ini", 2, 0, 360, 1450, 750, 80, 80));
 
-                // 转速条初始化
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(35);
-                add(RM_RefereeSystem::RM_RefereeSystemSetLine((char*)"dp1", 0, 1450, 690, 1450, 750 + 61));
+                // // 转速条初始化
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(35);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetLine((char*)"dp1", 0, 1450, 690, 1450, 750 + 61));
 
-                /***************************绘制静态UI***************************/
-                // pitch刻度
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_130", 0, 50, 51, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_120", 1, 60, 61, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_110", 2, 70, 71, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_100", 3, 80, 81, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_90", 4, 90, 91, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_80", 5, 100, 101, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_60", 6, 110, 111, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_50", 7, 120, 121, 960, 540, 380, 380));
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_40", 8, 130, 131, 960, 540, 380, 380));
+                // /***************************绘制静态UI***************************/
+                // // pitch刻度
+                // RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_130", 0, 50, 51, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_120", 1, 60, 61, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_110", 2, 70, 71, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_100", 3, 80, 81, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_90", 4, 90, 91, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_80", 5, 100, 101, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_60", 6, 110, 111, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_50", 7, 120, 121, 960, 540, 380, 380));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"a_40", 8, 130, 131, 960, 540, 380, 380));
 
-                // pitch刻度数字
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
-                RM_RefereeSystem::RM_RefereeSystemSetStringSize(10);
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(2);
-                add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_130", 0, 120, 1210, 770));
-                add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_110", 1, 90, 1270, 660));
-                add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_90", 2, 60, 1300, 540));
-                add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_70", 3, 30, 1280, 420));
-                add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_50", 4, 0, 1210, 310));
+                // // pitch刻度数字
+                // RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
+                // RM_RefereeSystem::RM_RefereeSystemSetStringSize(10);
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(2);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_130", 0, 120, 1210, 770));
+                // add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_110", 1, 90, 1270, 660));
+                // add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_90", 2, 60, 1300, 540));
+                // add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_70", 3, 30, 1280, 420));
+                // add(RM_RefereeSystem::RM_RefereeSystemSetInt((char*)"w_50", 4, 0, 1210, 310));
 
-                // 超电上限位
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
-                add(RM_RefereeSystem::RM_RefereeSystemSetLine((char*)"cd1", 2, 570, 540, 595, 540));
-                // 超电下限位
-                add(RM_RefereeSystem::RM_RefereeSystemSetLine((char*)"cd2", 2, 673, 800, 690, 785));
+                // // 超电上限位
+                // RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetLine((char*)"cd1", 2, 570, 540, 595, 540));
+                // // 超电下限位
+                // add(RM_RefereeSystem::RM_RefereeSystemSetLine((char*)"cd2", 2, 673, 800, 690, 785));
 
-                // 小陀螺内圆
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(1);
-                add(RM_RefereeSystem::RM_RefereeSystemSetCircle((char*)"xt_in", 2, 1450, 750, 67));
-                add(RM_RefereeSystem::RM_RefereeSystemSetRectangle((char*)"dp9", 2, 1450 - 20, 750 - 61, 1450 + 20, 750 + 62));
+                // // 小陀螺内圆
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(1);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetCircle((char*)"xt_in", 2, 1450, 750, 67));
+                // add(RM_RefereeSystem::RM_RefereeSystemSetRectangle((char*)"dp9", 2, 1450 - 20, 750 - 61, 1450 + 20, 750 + 62));
 
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-                add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"vis", 2, 166, 193, 956, 520, 360, 360));
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+                // add(RM_RefereeSystem::RM_RefereeSystemSetArced((char*)"vis", 2, 166, 193, 956, 520, 360, 360));
 
-                // 发送当前功率(P: 文字标签)
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
-                RM_RefereeSystem::RM_RefereeSystemSetStringSize(15);
-                RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
-                add_wz(RM_RefereeSystem::RM_RefereeSystemSetStr((char*)"P", 1, (char*)"Power:", ZM_of_X, ZM_of_Y));
+                // // 发送当前功率(P: 文字标签)
+                // RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
+                // RM_RefereeSystem::RM_RefereeSystemSetStringSize(15);
+                // RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
+                // add_wz(RM_RefereeSystem::RM_RefereeSystemSetStr((char*)"P", 1, (char*)"Power:", ZM_of_X, ZM_of_Y));
 
                 is_up_ui = true;
             }

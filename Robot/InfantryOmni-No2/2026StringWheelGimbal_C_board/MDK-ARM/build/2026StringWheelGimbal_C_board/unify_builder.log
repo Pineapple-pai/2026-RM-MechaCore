@@ -356,3 +356,649 @@ These source files will be recompiled
 [2026-03-17 21:11:32]	[done]
 	build successfully !
 
+[2026-03-19 01:22:52]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\USB_DEVICE\Target\usbd_conf.c': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+
+[2026-03-19 01:22:54]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/CommunicationTask.o -MMD ./../User/Task/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/CommunicationTask.cpp:58:34: error: no member named 'imu' in namespace 'BSP::IMU'
+   58 |     tx_gimbal.quat_w = BSP::IMU::imu.getQuat_w();
+      |                        ~~~~~~~~~~^
+./../User/Task/CommunicationTask.cpp:59:34: error: no member named 'imu' in namespace 'BSP::IMU'
+   59 |     tx_gimbal.quat_x = BSP::IMU::imu.getQuat_x();
+      |                        ~~~~~~~~~~^
+./../User/Task/CommunicationTask.cpp:60:34: error: no member named 'imu' in namespace 'BSP::IMU'
+   60 |     tx_gimbal.quat_y = BSP::IMU::imu.getQuat_y();
+      |                        ~~~~~~~~~~^
+./../User/Task/CommunicationTask.cpp:61:34: error: no member named 'imu' in namespace 'BSP::IMU'
+   61 |     tx_gimbal.quat_z = BSP::IMU::imu.getQuat_z();
+      |                        ~~~~~~~~~~^
+./../User/Task/CommunicationTask.cpp:81:5: error: use of undeclared identifier 'send_time'
+   81 |     send_time++;
+      |     ^
+./../User/Task/CommunicationTask.cpp:83:22: error: use of undeclared identifier 'send_time'
+   83 |     tx_gimbal.time = send_time;
+      |                      ^
+./../User/Task/CommunicationTask.cpp:85:5: error: use of undeclared identifier 'demo_time'
+   85 |     demo_time = tx_gimbal.time - rx_target.time;
+      |     ^
+./../User/Task/CommunicationTask.cpp:106:5: error: use of undeclared identifier 'CDC_Receive_FS'
+  106 |     CDC_Receive_FS(Rx_pData, &rx_len);
+      |     ^
+8 errors generated.
+
+[2026-03-19 01:23:44]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+
+[2026-03-19 01:23:45]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/CommunicationTask.o -MMD ./../User/Task/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/CommunicationTask.cpp:81:5: error: use of undeclared identifier 'send_time'
+   81 |     send_time++;
+      |     ^
+./../User/Task/CommunicationTask.cpp:83:22: error: use of undeclared identifier 'send_time'
+   83 |     tx_gimbal.time = send_time;
+      |                      ^
+./../User/Task/CommunicationTask.cpp:85:5: error: use of undeclared identifier 'demo_time'
+   85 |     demo_time = tx_gimbal.time - rx_target.time;
+      |     ^
+./../User/Task/CommunicationTask.cpp:106:5: error: use of undeclared identifier 'CDC_Receive_FS'
+  106 |     CDC_Receive_FS(Rx_pData, &rx_len);
+      |     ^
+4 errors generated.
+
+[2026-03-19 01:24:21]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+
+[2026-03-19 01:24:22]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/CommunicationTask.o -MMD ./../User/Task/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/CommunicationTask.cpp:86:5: error: use of undeclared identifier 'demo_time'; did you mean 'send_time'?
+   86 |     demo_time = tx_gimbal.time - rx_target.time;
+      |     ^~~~~~~~~
+      |     send_time
+./../User/Task/CommunicationTask.cpp:13:10: note: 'send_time' declared here
+   13 | uint32_t send_time = 0;
+      |          ^
+./../User/Task/CommunicationTask.cpp:107:5: error: use of undeclared identifier 'CDC_Receive_FS'
+  107 |     CDC_Receive_FS(Rx_pData, &rx_len);
+      |     ^
+2 errors generated.
+
+[2026-03-19 01:24:33]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+
+[2026-03-19 01:24:34]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/CommunicationTask.o -MMD ./../User/Task/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/CommunicationTask.cpp:108:5: error: use of undeclared identifier 'CDC_Receive_FS'
+  108 |     CDC_Receive_FS(Rx_pData, &rx_len);
+      |     ^
+1 error generated.
+
+[2026-03-19 01:25:31]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+
+[2026-03-19 01:25:35]	[done]
+	build successfully !
+
+[2026-03-19 01:37:46]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-19 01:37:47]	[done]
+	build successfully !
+
+[2026-03-19 02:06:00]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-19 02:06:02]	[done]
+	build successfully !
+
+[2026-03-19 02:51:48]	[done]
+	build successfully !
+
+[2026-03-19 04:06:22]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.cpp': source file has been changed.
+
+[2026-03-19 04:06:28]	[done]
+	build successfully !
+
+[2026-03-19 10:45:12]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+
+[2026-03-19 10:45:19]	[done]
+	build successfully !
+
+[2026-03-19 11:00:04]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-19 11:00:07]	[done]
+	build successfully !
+
+[2026-03-19 11:26:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\Alg\PID\pid.cpp': source file has been changed.
+
+[2026-03-19 11:26:56]	[done]
+	build successfully !
+
+[2026-03-19 11:48:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-19 11:48:08]	[done]
+	build successfully !
+
+[2026-03-19 15:43:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-19 15:43:17]	[done]
+	build successfully !
+
+[2026-03-20 04:45:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-20 04:45:07]	[done]
+	build successfully !
+
+[2026-03-20 04:47:16]	[done]
+	build successfully !
+
+[2026-03-20 04:54:46]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-20 04:54:49]	[done]
+	build successfully !
+
+[2026-03-20 04:58:52]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-20 04:58:54]	[done]
+	build successfully !
+
+[2026-03-20 05:08:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 05:08:36]	[done]
+	build successfully !
+
+[2026-03-20 05:13:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 05:13:17]	[done]
+	build successfully !
+
+[2026-03-20 08:41:47]	[done]
+	build successfully !
+
+[2026-03-20 10:09:08]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 10:09:10]	[done]
+	build successfully !
+
+[2026-03-20 10:09:23]	[done]
+	build successfully !
+
+[2026-03-20 10:10:11]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\Alg\PID\pid.cpp': source file has been changed.
+
+[2026-03-20 10:10:12]	[done]
+	build successfully !
+
+[2026-03-20 10:11:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 10:11:05]	[done]
+	build successfully !
+
+[2026-03-20 10:12:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 10:12:01]	[done]
+	build successfully !
+
+[2026-03-20 10:13:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 10:13:25]	[done]
+	build successfully !
+
+[2026-03-20 15:47:19]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-20 15:47:21]	[done]
+	build successfully !
+
+[2026-03-20 15:52:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-20 15:52:58]	[done]
+	build successfully !
+
+[2026-03-20 15:54:06]	[done]
+	build successfully !
+
+[2026-03-20 16:15:37]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 16:15:39]	[done]
+	build successfully !
+
+[2026-03-20 16:18:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 16:18:41]	[done]
+	build successfully !
+
+[2026-03-20 16:38:44]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\APP\Heat_Detector\Heat_Control_Private.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\APP\Heat_Detector\Heat_Control_Private.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\APP\Heat_Detector\Heat_Control_Private.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\APP\Heat_Detector\Heat_Control_Private.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-20 16:38:51]	[done]
+	build successfully !
+
+[2026-03-20 16:43:18]	[done]
+	build successfully !
+
+[2026-03-20 17:01:59]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 17:02:02]	[done]
+	build successfully !
+
+[2026-03-20 17:02:44]	[done]
+	build successfully !
+
+[2026-03-20 17:02:58]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 17:03:00]	[done]
+	build successfully !
+
+[2026-03-20 17:06:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 17:06:52]	[done]
+	build successfully !
+
+[2026-03-20 17:11:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 17:11:20]	[done]
+	build successfully !
+
+[2026-03-20 17:14:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-20 17:14:46]	[done]
+	build successfully !
+
+[2026-03-20 21:05:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-20 21:05:03]	[done]
+	build successfully !
+
+[2026-03-20 21:05:30]	[done]
+	build successfully !
+
+[2026-03-20 21:06:34]	[done]
+	build successfully !
+
+[2026-03-20 22:29:20]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\USB_DEVICE\App\usbd_cdc_if.c': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 22:29:22]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/ControlTask.o -MMD ./../User/Task/ControlTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/ControlTask.cpp:187:59: error: expected ';' after expression
+  187 |             gimbal_target.target_yaw = -vision.getTarYaw()        // ½Ç¶Èdeg TDÂË²¨
+      |                                                           ^
+      |                                                           ;
+1 error generated.
+
+[2026-03-20 22:29:28]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': object (.o) file not exist
+
+[2026-03-20 22:29:31]	[done]
+	build successfully !
+
+[2026-03-20 22:31:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-20 22:31:05]	[done]
+	build successfully !
+
+[2026-03-20 22:35:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-20 22:35:19]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/CommunicationTask.o -MMD ./../User/Task/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/CommunicationTask.cpp:215:43: error: called object type 'float' is not a function or function pointer
+  215 |         vofa_send(gimbal_target.target_yaw(), gimbal_target.target_pitch(), heat_control.GetNowFire(), heat_control.GetNowHeat(), heat_control.GetBulletCount(), Motor3508.getCurrent(2));
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~^
+./../User/Task/CommunicationTask.cpp:215:73: error: called object type 'float' is not a function or function pointer
+  215 |         vofa_send(gimbal_target.target_yaw(), gimbal_target.target_pitch(), heat_control.GetNowFire(), heat_control.GetNowHeat(), heat_control.GetBulletCount(), Motor3508.getCurrent(2));
+      |                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2 errors generated.
+
+[2026-03-20 22:36:27]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': object (.o) file not exist
+
+[2026-03-20 22:36:29]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/CommunicationTask.o -MMD ./../User/Task/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/CommunicationTask.cpp:215:114: error: too few arguments to function call, single argument 'id' was not specified
+  215 |         vofa_send(gimbal_target.target_yaw, gimbal_target.target_pitch, HI12.GetAddYaw(), MotorJ4310.getAngleDeg(), heat_control.GetBulletCount(), Motor3508.getCurrent(2));
+      |                                                                                           ~~~~~~~~~~~~~~~~~~~~~~ ^
+.\../user/core/BSP/Motor/MotorBase.hpp:92:15: note: 'getAngleDeg' declared here
+   92 |         float getAngleDeg(uint8_t id)
+      |               ^           ~~~~~~~~~~
+1 error generated.
+
+[2026-03-20 22:36:42]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': object (.o) file not exist
+
+[2026-03-20 22:36:44]	[done]
+	build successfully !
+
+[2026-03-20 22:49:28]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': source file has been changed.
+
+[2026-03-20 22:49:32]	[done]
+	build successfully !
+
+[2026-03-20 22:50:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': source file has been changed.
+
+[2026-03-20 22:50:32]	[done]
+	build successfully !
+
+[2026-03-21 01:23:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-21 01:23:33]	[done]
+	build successfully !
+
+[2026-03-21 01:57:52]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-21 01:57:55]	[done]
+	build successfully !
+
+[2026-03-21 02:33:47]	[done]
+	build successfully !
+
+[2026-03-21 02:33:59]	[done]
+	build successfully !
+
+[2026-03-21 03:38:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-21 03:38:13]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026StringWheelGimbal_C_board -D"USE_HAL_DRIVER" -D"STM32F407xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026StringWheelGimbal_C_board/.obj/__/User/Task/ControlTask.o -MMD ./../User/Task/ControlTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/ControlTask.cpp:630:150: error: too many arguments to function call, expected 7, have 8
+  630 |         heat_control.HeatControl(gimbal_target.target_surgewheel[0], current, velocity, Cboard.GetHeatLimit(), Cboard.GetHeatCool(), 24.0f , 0.001f, 15.0f);
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                                     ^~~~~
+.\../User/core/APP/Heat_Detector/Heat_Control_Private.hpp:80:18: note: 'HeatControl' declared here
+   80 |             void HeatControl(float target_speed, float *current, float *velocity, float max_heat, float heat_cd, float delty_t, float target_fire)
+      |                  ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+
+[2026-03-21 03:38:37]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': object (.o) file not exist
+
+[2026-03-21 03:38:38]	[done]
+	build successfully !
+
+[2026-03-21 03:39:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-21 03:39:50]	[done]
+	build successfully !
+
+[2026-03-21 08:50:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-21 08:50:18]	[done]
+	build successfully !
+
+[2026-03-21 08:52:13]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-21 08:52:16]	[done]
+	build successfully !
+
+[2026-03-21 10:20:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-21 10:20:44]	[done]
+	build successfully !
+
+[2026-03-21 10:21:12]	[done]
+	build successfully !
+
+[2026-03-21 10:30:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-21 10:30:24]	[done]
+	build successfully !
+
+[2026-03-21 10:47:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\core\APP\Heat_Detector\Heat_Control_Private.cpp': source file has been changed.
+
+[2026-03-21 10:47:18]	[done]
+	build successfully !
+
+[2026-03-21 10:50:52]	[done]
+	build successfully !
+
+[2026-03-22 22:01:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-22 22:01:59]	[done]
+	build successfully !
+
+[2026-03-22 22:10:11]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-22 22:10:13]	[done]
+	build successfully !
+
+[2026-03-22 22:44:09]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\Callback.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-22 22:44:13]	[done]
+	build successfully !
+
+[2026-03-22 22:44:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-22 22:44:28]	[done]
+	build successfully !
+
+[2026-03-22 22:54:20]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Motor\DM\DmMotor.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\CommunicationTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Motor\DM\DmMotor.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Motor\DM\DmMotor.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\SerialTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\MDK-ARM\..\User\core\BSP\Motor\DM\DmMotor.hpp' has been changed.
+
+[2026-03-22 22:54:28]	[done]
+	build successfully !
+
+[2026-03-23 18:46:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No2\2026StringWheelGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-23 18:46:05]	[done]
+	build successfully !
+

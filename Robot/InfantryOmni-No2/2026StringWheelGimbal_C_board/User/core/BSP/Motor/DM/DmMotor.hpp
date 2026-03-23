@@ -311,6 +311,11 @@ namespace BSP::Motor::DM
             HAL::CAN::get_can_bus_instance().get_can2().send(frame);
         }
 
+        uint8_t GetErr(uint8_t id)
+        {
+            return feedback_[id - 1].err;
+        }
+
     protected:
         const int16_t init_address;
         uint8_t recv_idxs_[N];

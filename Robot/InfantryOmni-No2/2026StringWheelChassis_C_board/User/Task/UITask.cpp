@@ -20,16 +20,16 @@ void UI(void const * argument)
 
     for(;;)
     {
-        // // 1. 每隔一段时间（例如 5000ms）触发一次“软重建”，防止裁判系统断电重启导致屏幕清空
-        // if (osKernelSysTick() - last_rebuild_tick > 5000)
-        // {
-        //     UI_static.Init();
-        //     last_rebuild_tick = osKernelSysTick();
-        // }
+        // 1. 每隔一段时间（例如 5000ms）触发一次“软重建”，防止裁判系统断电重启导致屏幕清空
+        if (osKernelSysTick() - last_rebuild_tick > 5000)
+        {
+            UI_static.Init();
+            last_rebuild_tick = osKernelSysTick();
+        }
 
         // // 2. 队列会自动每隔 100ms（或者根据底层计数）向串口吐出一点点数据，防堵塞
-        // UI_static.send_wz(); 
-        // UI_static.send();
+        UI_static.send_wz(); 
+        UI_static.send();
 
         // RTOS 任务延时
         osDelay(10);

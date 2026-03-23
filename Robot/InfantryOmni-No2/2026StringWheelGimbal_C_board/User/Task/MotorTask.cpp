@@ -52,11 +52,17 @@ static void motor_control()
     }
     else if(gimbal_fsm.Get_Now_State() == VISION)
     {
-        MotorJ4310.ctrl_Mit(1, 
+        // MotorJ4310.ctrl_Mit(1, 
+        //                    gimbal_target.target_pitch*3.1415926f/180.0f, 
+        //                    0.0f, 
+        //                    pitch_vision_pid.getK(0), 
+        //                    pitch_vision_pid.getK(2), 
+        //                    gimbal_output.out_pitch);
+                MotorJ4310.ctrl_Mit(1, 
                            gimbal_target.target_pitch*3.1415926f/180.0f, 
                            0.0f, 
-                           pitch_vision_pid.getK(0), 
-                           pitch_vision_pid.getK(2), 
+                           0.0f, 
+                           0.0f, 
                            gimbal_output.out_pitch);
     }
     else

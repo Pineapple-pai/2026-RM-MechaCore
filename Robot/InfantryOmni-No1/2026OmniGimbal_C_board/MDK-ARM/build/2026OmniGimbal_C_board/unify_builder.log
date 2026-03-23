@@ -968,3 +968,22 @@ These source files will be recompiled
 [2026-03-18 03:46:40]	[done]
 	build successfully !
 
+[2026-03-18 06:09:59]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-18 06:10:01]	[done]
+	build successfully !
+
+[2026-03-18 11:42:00]	[done]
+	build successfully !
+
+[2026-03-18 11:42:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniGimbal_C_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-18 11:42:12]	[done]
+	build successfully !
+

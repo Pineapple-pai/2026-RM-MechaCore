@@ -6,7 +6,7 @@ namespace ALG::PID
 {
     PID::PID(float kp, float ki, float kd, float max, float integral_limit, float integral_separation_threshold_) 
         : max_(max), min_(-max), integral_limit_(integral_limit), integral_separation_threshold_(integral_separation_threshold_),
-          d_filtered_(0.0f), alpha_d_(0.15f)
+          d_filtered_(0.0f), alpha_d_(0.6f)
     {
         // 设定增益
         k_[0] = kp;

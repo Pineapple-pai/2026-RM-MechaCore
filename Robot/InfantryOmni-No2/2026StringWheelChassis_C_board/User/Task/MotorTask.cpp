@@ -24,7 +24,7 @@ void MotorInit(void)
     });
     can2.register_rx_callback([](const HAL::CAN::Frame &frame) 
     {
-        //supercap.Parse(frame);
+        supercap.Parse(frame);
     });
 }
 
@@ -46,7 +46,7 @@ static void motor_control_logic(uint32_t tick)
     // 500Hz for Supercap (Every 2ms)
     if (tick % 2 == 0)
     {
-        //supercap.sendCAN();
+        supercap.sendCAN();
     }
 }                               
 

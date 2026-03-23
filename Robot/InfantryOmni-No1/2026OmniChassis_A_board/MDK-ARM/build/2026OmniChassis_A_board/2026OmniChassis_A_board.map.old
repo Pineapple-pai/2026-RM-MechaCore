@@ -8099,11 +8099,11 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08007478   Section        0  ControlTask.o(.text._Z15CalculateFollowv)
     [Anonymous Symbol]                       0x0800753c   Section        0  ControlTask.o(.text._Z15launch_velocityv)
     [Anonymous Symbol]                       0x08007584   Section        0  ControlTask.o(.text._Z16SetTarget_Launchv)
-    [Anonymous Symbol]                       0x08007844   Section        0  ControlTask.o(.text._Z16main_loop_gimbalhhbPb)
-    [Anonymous Symbol]                       0x080078bc   Section        0  ControlTask.o(.text._Z16main_loop_launchv)
-    [Anonymous Symbol]                       0x08007ae0   Section        0  ControlTask.o(.text._Z17chassis_notfollowv)
-    [Anonymous Symbol]                       0x08007e48   Section        0  CommunicationTask.o(.text._Z20BoardCommunicationTXv)
-    [Anonymous Symbol]                       0x08007e78   Section        0  CommunicationTask.o(.text._Z22BoardCommunicationInitv)
+    [Anonymous Symbol]                       0x08007840   Section        0  ControlTask.o(.text._Z16main_loop_gimbalhhbPb)
+    [Anonymous Symbol]                       0x080078b8   Section        0  ControlTask.o(.text._Z16main_loop_launchv)
+    [Anonymous Symbol]                       0x08007adc   Section        0  ControlTask.o(.text._Z17chassis_notfollowv)
+    [Anonymous Symbol]                       0x08007e44   Section        0  CommunicationTask.o(.text._Z20BoardCommunicationTXv)
+    [Anonymous Symbol]                       0x08007e74   Section        0  CommunicationTask.o(.text._Z22BoardCommunicationInitv)
     [Anonymous Symbol]                       0x08007ed8   Section        0  ControlTask.o(.text._Z23CalculateTranslation_xyffffPfS_f)
     [Anonymous Symbol]                       0x0800806c   Section        0  pid.o(.text._Z3absB8ne190000f)
     [Anonymous Symbol]                       0x08008080   Section        0  ControlTask.o(.text._Z8fsm_initv)
@@ -9510,11 +9510,11 @@ Image Symbol Table
     CalculateFollow()                        0x08007479   Thumb Code   168  ControlTask.o(.text._Z15CalculateFollowv)
     launch_velocity()                        0x0800753d   Thumb Code    70  ControlTask.o(.text._Z15launch_velocityv)
     SetTarget_Launch()                       0x08007585   Thumb Code   692  ControlTask.o(.text._Z16SetTarget_Launchv)
-    main_loop_gimbal(unsigned char, unsigned char, bool, bool*) 0x08007845   Thumb Code   118  ControlTask.o(.text._Z16main_loop_gimbalhhbPb)
-    main_loop_launch()                       0x080078bd   Thumb Code   548  ControlTask.o(.text._Z16main_loop_launchv)
-    chassis_notfollow()                      0x08007ae1   Thumb Code   860  ControlTask.o(.text._Z17chassis_notfollowv)
-    BoardCommunicationTX()                   0x08007e49   Thumb Code    48  CommunicationTask.o(.text._Z20BoardCommunicationTXv)
-    BoardCommunicationInit()                 0x08007e79   Thumb Code    94  CommunicationTask.o(.text._Z22BoardCommunicationInitv)
+    main_loop_gimbal(unsigned char, unsigned char, bool, bool*) 0x08007841   Thumb Code   118  ControlTask.o(.text._Z16main_loop_gimbalhhbPb)
+    main_loop_launch()                       0x080078b9   Thumb Code   548  ControlTask.o(.text._Z16main_loop_launchv)
+    chassis_notfollow()                      0x08007add   Thumb Code   860  ControlTask.o(.text._Z17chassis_notfollowv)
+    BoardCommunicationTX()                   0x08007e45   Thumb Code    48  CommunicationTask.o(.text._Z20BoardCommunicationTXv)
+    BoardCommunicationInit()                 0x08007e75   Thumb Code    94  CommunicationTask.o(.text._Z22BoardCommunicationInitv)
     CalculateTranslation_xy(float, float, float, float, float*, float*, float) 0x08007ed9   Thumb Code   368  ControlTask.o(.text._Z23CalculateTranslation_xyffffPfS_f)
     abs[abi:ne190000](float)                 0x0800806d   Thumb Code    18  pid.o(.text._Z3absB8ne190000f)
     fsm_init()                               0x08008081   Thumb Code    16  ControlTask.o(.text._Z8fsm_initv)
@@ -10634,14 +10634,14 @@ Memory Map of the image
     0x08007478   0x000000c4   Code   RO         1885    .text._Z15CalculateFollowv  ControlTask.o
     0x0800753c   0x00000046   Code   RO         1899    .text._Z15launch_velocityv  ControlTask.o
     0x08007582   0x00000002   PAD
-    0x08007584   0x000002c0   Code   RO         1889    .text._Z16SetTarget_Launchv  ControlTask.o
-    0x08007844   0x00000076   Code   RO         1897    .text._Z16main_loop_gimbalhhbPb  ControlTask.o
-    0x080078ba   0x00000002   PAD
-    0x080078bc   0x00000224   Code   RO         1909    .text._Z16main_loop_launchv  ControlTask.o
-    0x08007ae0   0x00000368   Code   RO         1893    .text._Z17chassis_notfollowv  ControlTask.o
-    0x08007e48   0x00000030   Code   RO         1753    .text._Z20BoardCommunicationTXv  CommunicationTask.o
-    0x08007e78   0x0000005e   Code   RO         1746    .text._Z22BoardCommunicationInitv  CommunicationTask.o
-    0x08007ed6   0x00000002   PAD
+    0x08007584   0x000002bc   Code   RO         1889    .text._Z16SetTarget_Launchv  ControlTask.o
+    0x08007840   0x00000076   Code   RO         1897    .text._Z16main_loop_gimbalhhbPb  ControlTask.o
+    0x080078b6   0x00000002   PAD
+    0x080078b8   0x00000224   Code   RO         1909    .text._Z16main_loop_launchv  ControlTask.o
+    0x08007adc   0x00000368   Code   RO         1893    .text._Z17chassis_notfollowv  ControlTask.o
+    0x08007e44   0x00000030   Code   RO         1753    .text._Z20BoardCommunicationTXv  CommunicationTask.o
+    0x08007e74   0x0000005e   Code   RO         1746    .text._Z22BoardCommunicationInitv  CommunicationTask.o
+    0x08007ed2   0x00000006   PAD
     0x08007ed8   0x00000194   Code   RO         1883    .text._Z23CalculateTranslation_xyffffPfS_f  ControlTask.o
     0x0800806c   0x00000012   Code   RO         2609    .text._Z3absB8ne190000f  pid.o
     0x0800807e   0x00000002   PAD
@@ -12412,7 +12412,7 @@ Image component sizes
 
        804          0         88          0          0      29690   Callback.o
       1608          4        308          0        228      44024   CommunicationTask.o
-     12488        308        532         64       1427      65360   ControlTask.o
+     12484        304        532         64       1427      65360   ControlTask.o
       1128          4         56          0          0      25741   DT7.o
        608          0         23         12          0       4681   FiniteStateMachine_chassis.o
       6328        224        456          0        836      56688   MotorTask.o
@@ -12459,9 +12459,9 @@ Image component sizes
       1660          0          0          0       1032       8839   usart.o
 
     ----------------------------------------------------------------------
-     67604        632       5680         96      22675     942750   Object Totals
+     67604        628       5680         96      22675     942750   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       728         12          0          5         29          0   (incl. Padding)
+       732         12          0          5         29          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -12566,9 +12566,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     81580       1692       7656        120      23208     949130   Grand Totals
-     81580       1692       7656        120      23208     949130   ELF Image Totals
-     81580       1692       7656        120          0          0   ROM Totals
+     81580       1688       7656        120      23208     949130   Grand Totals
+     81580       1688       7656        120      23208     949130   ELF Image Totals
+     81580       1688       7656        120          0          0   ROM Totals
 
 ==============================================================================
 

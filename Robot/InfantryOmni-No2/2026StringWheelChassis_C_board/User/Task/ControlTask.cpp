@@ -87,13 +87,14 @@ Output_chassis chassis_output;  // 底盘输出
 bool check_online()
 {
     bool isconnected = true;
-    for(int i = 0; i < 4; i++)
-    {
-        if(!Motor3508.isConnected(i+1, i+1) || !Motor6020.isConnected(i+1, i+5))
-        {
-            isconnected = false;
-        }
-    }
+    //上场要注释掉，蜂鸣器使用了队列存在滞后，不注释掉的话场上复活开始的几秒轮子会疯
+    // for(int i = 0; i < 4; i++)
+    // {
+    //     if(!Motor3508.isConnected(i+1, i+1) || !Motor6020.isConnected(i+1, i+5))
+    //     {
+    //         isconnected = false;
+    //     }
+    // }
 
     if(/*!Cboard.isConnected() ||*/ !DT7.isConnected())
     {
@@ -228,7 +229,7 @@ void SetTarget()
                 if(alphabet[23])   // 小陀螺: 慢速启动和停止，极度丝滑 (0.02f)
                 {
                     target_vw_raw = 15.0f * vw_Handle;
-                    psi = -0.12f * target_vw_raw;
+                    psi = 0.1f * target_vw_raw;
                 }
                 else    // 底盘跟随: 快速响应和高压制刹车 (0.15f)，杜绝走S形
                 {
@@ -266,7 +267,7 @@ void SetTarget()
                 if(vw_Handle != 0.0f)   // 可以小陀螺
                 {
                     target_vw_raw = 15.0f * vw_Handle;
-                    psi = -0.12f * target_vw_raw;
+                    psi = 0.1f * target_vw_raw;
                 }
                 else    // 底盘跟随
                 {
@@ -307,7 +308,7 @@ void SetTarget()
                 chassis_target.target_rotation = target_vw_raw;
 
                 // 使用已被斜坡平滑处理过的真实旋转速度进行绝佳的相位补偿
-                psi = -0.12f * target_vw_raw;
+                psi = 0.1f * target_vw_raw;
                 
                 CalculateTranslation_xy(Cboard.GetYawAngle(), vy_Handle, vx_Handle, -0.16f, &vx, &vy, psi);  // 计算旋转矩阵
                 string_target[0].TIM_Calculate_PeriodElapsedCallback(vx, string_fk.GetChassisVx()); // 斜坡规划 X方向（前后）
@@ -336,7 +337,7 @@ void SetTarget()
                 chassis_target.target_rotation = target_vw_raw;
 
                 // 使用实时的真实旋转速度进行相位补偿
-                psi = -0.12f * target_vw_raw;
+                psi = 0.1f * target_vw_raw;
                 
                 CalculateTranslation_xy(Cboard.GetYawAngle(), vx_Handle, vy_Handle, -0.16f, &vx, &vy, psi);  // 计算旋转矩阵
                 string_target[0].TIM_Calculate_PeriodElapsedCallback(vx, string_fk.GetChassisVx()); // 斜坡规划 X方向（前后）
