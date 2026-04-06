@@ -1,4 +1,4 @@
-#include "Filter.hpp"
+﻿#include "Filter.hpp"
 #include <cmath>
 
 
@@ -79,6 +79,11 @@ float TDFilter::filter(float Input)
     return v1;  // 返回跟踪信号
 }
 
+void TDFilter::reset(float value)
+{
+    v1 = value;
+    v2 = 0.0f;
+}
 
 // 获取微分信号
 float TDFilter::getDerivative() const

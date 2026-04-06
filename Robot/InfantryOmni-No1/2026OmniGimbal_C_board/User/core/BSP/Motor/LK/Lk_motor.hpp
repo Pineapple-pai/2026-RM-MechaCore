@@ -76,11 +76,6 @@ namespace BSP::Motor::LK
             {
                 recv_idxs_[i] = recv_ids[i];
                 send_idxs_[i] = send_ids[i];
-                // 初始化多圈角度数据
-                multi_angle_data_[i].total_angle = 0.0;
-                multi_angle_data_[i].last_angle = 0.0;
-                multi_angle_data_[i].allow_accumulate = false;
-                multi_angle_data_[i].is_initialized = false;
             }
         }
 
@@ -93,36 +88,22 @@ namespace BSP::Motor::LK
             this->unit_data_[i].angle_Rad = this->unit_data_[i].angle_Deg * params.deg_to_rad;
             this->unit_data_[i].velocity_Rad = feedback_[i].velocity * params.rpm_to_radps;
             this->unit_data_[i].velocity_Rpm = feedback_[i].velocity * params.encoder_to_rpm;
+            this->unit_data_[i].velocity_Deg = this->unit_data_[i].velocity_Rad * params.rad_to_deg;
             this->unit_data_[i].current_A = feedback_[i].current * params.feedback_to_current_coefficient;
             this->unit_data_[i].torque_Nm = feedback_[i].current * params.current_to_torque_coefficient;
             this->unit_data_[i].temperature_C = feedback_[i].temperature;
 
-            // 多圈角度计算
-            if (multi_angle_data_[i].allow_accumulate) 
-            {
-                if (!multi_angle_data_[i].is_initialized)
-                {
-                    multi_angle_data_[i].last_angle = this->unit_data_[i].angle_Deg;
-                    multi_angle_data_[i].is_initialized = true;
-                }
-                else
-                {
-                    double last_angle = multi_angle_data_[i].last_angle;
-                    double delta = this->unit_data_[i].angle_Deg - last_angle;
-                    
-                    // 处理360°跳变
-                    if (delta > 180.0) 
-                        delta -= 360.0;
-                    else if (delta < -180.0) 
-                        delta += 360.0;
-                    
-                    multi_angle_data_[i].total_angle += delta;
-                    this->unit_data_[i].add_angle = delta;
-                }
-            }
-            
-            multi_angle_data_[i].last_angle = this->unit_data_[i].angle_Deg;
-            this->unit_data_[i].last_angle = this->unit_data_[i].angle_Deg;
+            double lastData = this->unit_data_[i].last_angle;
+            double Data = this->unit_data_[i].angle_Deg;
+
+            if (Data - lastData < -180) // 正转
+                this->unit_data_[i].add_angle += (360 - lastData + Data) * params.deg_to_real;
+            else if (Data - lastData > 180) // 反转
+                this->unit_data_[i].add_angle += -(360 - Data + lastData) * params.deg_to_real;
+            else
+                this->unit_data_[i].add_angle += (Data - lastData) * params.deg_to_real;
+
+            this->unit_data_[i].last_angle = Data;
         }
 
         HAL::CAN::Frame msd;
@@ -135,7 +116,7 @@ namespace BSP::Motor::LK
         {
             for (uint8_t i = 0; i < N; ++i)
             {
-                if (frame.id == init_address + recv_idxs_[i])
+                if (frame.id == 0x140 + recv_idxs_[i])
                 {
                     const uint8_t* pData = frame.data;
                         
@@ -161,7 +142,7 @@ namespace BSP::Motor::LK
         {
             // 修改此处以适应新的CAN接口
             HAL::CAN::Frame frame;
-            frame.id = 140 + send_idxs_[id - 1];
+            frame.id = 0x140 + send_idxs_[id - 1];
             frame.dlc = 8;
             memcpy(frame.data, msd.data, 8);
             frame.is_extended_id = false;
@@ -175,17 +156,16 @@ namespace BSP::Motor::LK
         */
         void ctrl_Position(uint8_t id, int32_t angle, uint16_t speed)
         {
-            uint8_t data[8];
             uint32_t encoder_value = angle * 100; // 根据实际转换关系调整
             
-            data[0] = 0xA4;
-            data[1] = 0x00;
-            data[2] = speed & 0xFF;
-            data[3] = (speed >> 8) & 0xFF;
-            data[4] = encoder_value & 0xFF;
-            data[5] = (encoder_value >> 8) & 0xFF;
-            data[6] = (encoder_value >> 16) & 0xFF;
-            data[7] = (encoder_value >> 24) & 0xFF;
+            msd.data[0] = 0xA4;
+            msd.data[1] = 0x00;
+            msd.data[2] = speed & 0xFF;
+            msd.data[3] = (speed >> 8) & 0xFF;
+            msd.data[4] = encoder_value & 0xFF;
+            msd.data[5] = (encoder_value >> 8) & 0xFF;
+            msd.data[6] = (encoder_value >> 16) & 0xFF;
+            msd.data[7] = (encoder_value >> 24) & 0xFF;
 
             sendCAN(id);
         }
@@ -201,15 +181,14 @@ namespace BSP::Motor::LK
             if (torque > 2048) torque = 2048;
             if (torque < -2048) torque = -2048;
                 
-            uint8_t data[8];
-            data[0] = 0xA1;
-            data[1] = 0x00;
-            data[2] = 0x00;
-            data[3] = 0x00;
-            data[4] = torque & 0xFF;
-            data[5] = (torque >> 8) & 0xFF;
-            data[6] = 0x00;
-            data[7] = 0x00;
+            msd.data[0] = 0xA1;
+            msd.data[1] = 0x00;
+            msd.data[2] = 0x00;
+            msd.data[3] = 0x00;
+            msd.data[4] = torque & 0xFF;
+            msd.data[5] = (torque >> 8) & 0xFF;
+            msd.data[6] = 0x00;
+            msd.data[7] = 0x00;
 
             sendCAN(id);
         }
@@ -221,7 +200,8 @@ namespace BSP::Motor::LK
         {
             if (motor_index < 1 || motor_index > N) return;
 
-            uint8_t data[8] = {0x88};
+            memset(msd.data, 0, 8);
+            msd.data[0] = 0x88;
                 
             sendCAN(id);
         }
@@ -233,7 +213,8 @@ namespace BSP::Motor::LK
         {
             if (motor_index < 1 || motor_index > N) return;
 
-            uint8_t data[8] = {0x81};
+            memset(msd.data, 0, 8);
+            msd.data[0] = 0x81;
             
             sendCAN(id);
         }
@@ -245,7 +226,8 @@ namespace BSP::Motor::LK
         {
             if (motor_index < 1 || motor_index > N) return;
 
-            uint8_t data[8] = {0x9B};
+            memset(msd.data, 0, 8);
+            msd.data[0] = 0x9B;
             
             sendCAN(id);
         }
@@ -254,19 +236,11 @@ namespace BSP::Motor::LK
         {
             if (motor_index < 1 || motor_index > N) return;
             
-            uint8_t data[8] = {0x9C};
+            memset(msd.data, 0, 8);
+            msd.data[0] = 0x9C;
             
             sendCAN(id);
         }
-
-       /**
-        * @brief 获取多圈角度
-        */
-       float getMultiAngle(uint8_t id)
-       {
-           if (id < 1 || id > N) return 0.0f;
-           return multi_angle_data_[id - 1].total_angle;
-       }
 
        /**
         * @brief 设置是否允许累计多圈角度
@@ -275,15 +249,6 @@ namespace BSP::Motor::LK
        {
            if (id < 1 || id > N) return;
            multi_angle_data_[id - 1].allow_accumulate = allow;
-       }
-
-       /**
-        * @brief 获取是否允许累计多圈角度
-        */
-       bool getAllowAccumulate(uint8_t id)
-       {
-           if (id < 1 || id > N) return false;
-           return multi_angle_data_[id - 1].allow_accumulate;
        }
 
    protected:

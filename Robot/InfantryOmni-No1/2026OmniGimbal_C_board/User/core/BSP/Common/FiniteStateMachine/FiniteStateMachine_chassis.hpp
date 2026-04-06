@@ -29,6 +29,8 @@ enum Enum_Chassis_States
     STOP = 0,      // 停止状态
     FOLLOW,        // 跟随状态
     NOTFOLLOW,     // 非跟随状态
+    KEYBOARD,      // 键盘控制状态
+    TRANSFORM,     // 变形状态
     STATUS_COUNT   // 状态数量
 };
 
@@ -115,6 +117,11 @@ public:
      */
     void Reset_State_Statistics(Enum_Chassis_States state);
 
+    /**
+     * @brief 获取当前状态本次进入后的持续时间
+     */
+    inline uint32_t Get_Current_Duration();
+
 private:
     // 左右开关状态
     uint8_t StateLeft = 2;
@@ -142,5 +149,6 @@ inline const char* Chassis_FSM::Get_Now_State_Name()
 {
     return Status[State_chassis].Name;
 }
+
 
 #endif

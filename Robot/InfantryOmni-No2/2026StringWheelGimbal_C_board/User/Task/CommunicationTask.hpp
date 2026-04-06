@@ -7,12 +7,12 @@
 #include "../User/core/BSP/Common/StateWatch/state_watch.hpp"
 #include "../User/core/BSP/Common/StateWatch/buzzer_manager.hpp"
 
-extern uint8_t BoardRx[4];;
+extern uint8_t BoardRx[4];
 
 class BoardCommunication
 {
     public:
-        BoardCommunication(int timeThreshold = 100) : statewatch_(timeThreshold) 
+        BoardCommunication(int timeThreshold = 100) : statewatch_(timeThreshold)
         {
         }
         virtual ~BoardCommunication() = default;
@@ -47,70 +47,68 @@ class BoardCommunication
         {
             return shooter_barrel_heat_limit;
         }
-        
+
         uint16_t GetHeatCool()
         {
             return shooter_barrel_cooling_value;
         }
+
     private:
         BSP::WATCH_STATE::StateWatch statewatch_;
-        uint16_t shooter_barrel_heat_limit; // 枪口热量上限
-        uint16_t shooter_barrel_cooling_value; // 热量冷却
+        uint16_t shooter_barrel_heat_limit;
+        uint16_t shooter_barrel_cooling_value;
 };
-
-
 
 class Vision
 {
     public:
-        /* data */
         struct Frame
         {
-            uint8_t head_one;
-            uint8_t head_two;
+            uint8_t head_one = 0;
+            uint8_t head_two = 0;
         };
 
         struct Tx_Gimbal
         {
-            int32_t pitch_angle;
-            int32_t yaw_angle;
-            uint32_t time;
+            float quat_w = 0.0f;
+            float quat_x = 0.0f;
+            float quat_y = 0.0f;
+            float quat_z = 0.0f;
+            uint32_t time = 0;
         };
 
         struct Tx_Other
         {
-            uint8_t bullet_rate;
-            uint8_t enemy_color;
-            uint8_t vision_mode;
-            uint8_t tail;
+            uint8_t bullet_rate = 0;
+            uint8_t enemy_color = 0;
+            uint8_t vision_mode = 0;
+            uint8_t tail = 0;
         };
 
         struct Rx_Frame
         {
-            uint8_t head_one;
-            uint8_t head_two;
+            uint8_t head_one = 0;
+            uint8_t head_two = 0;
         };
 
         struct Rx_Target
         {
-            float pitch_angle;
-            float yaw_angle;
-
-            float time;
+            float pitch_angle = 0.0f;
+            float yaw_angle = 0.0f;
+            uint32_t time = 0;
         };
 
         struct Rx_Other
         {
-            uint8_t vision_ready;
-            uint8_t fire;
-            uint8_t tail;
-
-            uint8_t aim_x;
-            uint8_t aim_y;
+            uint8_t vision_ready = 0;
+            uint8_t fire = 0;
+            uint8_t tail = 0;
+            uint8_t aim_x = 0;
+            uint8_t aim_y = 0;
         };
 
-        float pitch_angle_; //度
-        float yaw_angle_;   //度
+        float pitch_angle_ = 0.0f;
+        float yaw_angle_ = 0.0f;
 
         Frame frame;
         Tx_Gimbal tx_gimbal;
@@ -120,19 +118,22 @@ class Vision
         Rx_Target rx_target;
         Rx_Other rx_other;
 
-        uint8_t Tx_pData[18];
-        uint8_t Rx_pData[19];
+        uint8_t Tx_pData[26] = {0};
+        uint8_t Rx_pData[19] = {0};
 
-        bool fire_flag;
-        uint32_t fire_num;
+        bool fire_flag = false;
+        uint32_t fire_num = 0;
+        bool vision_flag = false;
+        uint8_t vision_mode = 0;
 
-        bool vision_flag; // 超过一定范围就置1
-        uint8_t vision_mode;  // 0：停火，1：单发，2：连发
+        bool fire_value_initialized = false;
+        uint32_t fire_update_count = 0;
+        Rx_Target debug_rx_target;
+        Rx_Other debug_rx_other;
 
     public:
         void Data_send();
         void dataReceive();
-        void time_demo();
 
         float set_pitch_angle(float yaw_angle)
         {

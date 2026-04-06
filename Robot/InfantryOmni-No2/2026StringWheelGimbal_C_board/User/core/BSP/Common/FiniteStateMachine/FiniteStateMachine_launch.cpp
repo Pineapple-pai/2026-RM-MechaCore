@@ -76,7 +76,7 @@ void Launch_FSM::SetState(uint8_t left, uint8_t right, bool equipment_online)
  * @param is_jamming 是否卡弹
  * @param alphabet 按键状态
  */
-void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online, bool Change, float time, uint8_t Vision, bool is_vision, bool is_shoot, bool is_jamming, bool *alphabet)
+void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online, bool Change, float time, bool VisionFire, bool is_vision, bool is_shoot, bool is_jamming, bool *alphabet)
 {
     TIM_Update();
     // 保存旧状态用于统计
@@ -106,17 +106,13 @@ void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online,
             {
                 if(is_vision)   // 右键且视觉标志为真
                 {
-                    if(Vision == 0) // 视觉给的停火
-                    {
-                        State_launch = LAUNCH_CEASEFIRE;
-                    }
-                    else if(Vision == 1) // 视觉给的单发
-                    {
-                        State_launch = LAUNCH_ONLY;
-                    }
-                    else if(Vision == 2) // 视觉给的连发
+                    if(VisionFire) // 视觉给的开火
                     {
                         State_launch = LAUNCH_AUTO;
+                    }
+                    else // 视觉给的停火
+                    {
+                        State_launch = LAUNCH_CEASEFIRE;
                     }
                 }
                 else // 非视觉时
@@ -176,17 +172,13 @@ void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online,
                     {
                         if(is_vision) // 视觉标志位为真
                         {
-                            if(Vision == 0)    // 视觉停止位
-                            {
-                                State_launch = LAUNCH_CEASEFIRE;
-                            }
-                            else if(Vision == 1)    // 视觉单发
-                            {
-                                State_launch = LAUNCH_ONLY;
-                            }
-                            else if(Vision == 2)    // 视觉连发
+                            if(VisionFire)    // 视觉开火
                             {
                                 State_launch = LAUNCH_AUTO;
+                            }
+                            else              // 视觉停火
+                            {
+                                State_launch = LAUNCH_CEASEFIRE;
                             }
                         }
                         else // 视觉标志位为假
@@ -206,17 +198,13 @@ void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online,
             {
                 if(is_vision)  // 右键且视觉标志为真
                 {
-                    if(Vision == 0) // 视觉给的停火
-                    {
-                        State_launch = LAUNCH_CEASEFIRE;
-                    }
-                    else if(Vision == 1) // 视觉给的单发
-                    {
-                        State_launch = LAUNCH_ONLY;
-                    }
-                    else if(Vision == 2) // 视觉给的连发
+                    if(VisionFire) // 视觉给的开火
                     {
                         State_launch = LAUNCH_AUTO;
+                    }
+                    else // 视觉给的停火
+                    {
+                        State_launch = LAUNCH_CEASEFIRE;
                     }
                 }
                 else // 非视觉时
@@ -274,17 +262,13 @@ void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online,
                         {
                             if(is_vision) // 视觉标志位为真
                             {
-                                if(Vision == 0)    // 视觉停止位
-                                {
-                                    State_launch = LAUNCH_CEASEFIRE;
-                                }
-                                else if(Vision == 1)    // 视觉单发
-                                {
-                                    State_launch = LAUNCH_ONLY;
-                                }
-                                else if(Vision == 2)    // 视觉连发
+                                if(VisionFire)    // 视觉开火
                                 {
                                     State_launch = LAUNCH_AUTO;
+                                }
+                                else              // 视觉停火
+                                {
+                                    State_launch = LAUNCH_CEASEFIRE;
                                 }
                             }
                             else // 视觉标志位为假
@@ -306,17 +290,13 @@ void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online,
             {
                 if(is_vision)  // 右键且视觉标志为真
                 {
-                    if(Vision == 0) // 视觉给的停火
-                    {
-                        State_launch = LAUNCH_CEASEFIRE;
-                    }
-                    else if(Vision == 1) // 视觉给的单发
-                    {
-                        State_launch = LAUNCH_ONLY;
-                    }
-                    else if(Vision == 2) // 视觉给的连发
+                    if(VisionFire) // 视觉给的开火
                     {
                         State_launch = LAUNCH_AUTO;
+                    }
+                    else // 视觉给的停火
+                    {
+                        State_launch = LAUNCH_CEASEFIRE;
                     }
                 }
                 else
@@ -354,17 +334,13 @@ void Launch_FSM::StateUpdate(uint8_t left, uint8_t right, bool equipment_online,
                     {
                         if(is_vision) // 视觉标志位为真
                         {
-                            if(Vision == 0)    // 视觉停止位
-                            {
-                                State_launch = LAUNCH_CEASEFIRE;
-                            }
-                            else if(Vision == 1)    // 视觉单发
-                            {
-                                State_launch = LAUNCH_ONLY;
-                            }
-                            else if(Vision == 2)    // 视觉连发
+                            if(VisionFire)    // 视觉开火
                             {
                                 State_launch = LAUNCH_AUTO;
+                            }
+                            else              // 视觉停火
+                            {
+                                State_launch = LAUNCH_CEASEFIRE;
                             }
                         }
                         else // 视觉标志位为假

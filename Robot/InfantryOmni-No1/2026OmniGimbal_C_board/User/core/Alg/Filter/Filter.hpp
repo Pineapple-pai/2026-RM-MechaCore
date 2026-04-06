@@ -1,4 +1,4 @@
-#ifndef FILTER_HPP
+﻿#ifndef FILTER_HPP
 #define FILTER_HPP
 
 
@@ -52,6 +52,9 @@ public:
     
     // 重新设置参数
     void setParams(float new_R, float new_H);
+
+    // 同步内部状态，常用于模式切换时避免跳变
+    void reset(float value = 0.0f);
 
     float getDerivative() const;      // 获取微分信号
 };

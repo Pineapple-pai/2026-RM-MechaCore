@@ -175,6 +175,8 @@ template <uint8_t N> class DjiMotorBase : public MotorBase<N>
 
         this->unit_data_[i].velocity_Rpm = feedback_[i].velocity * params.encoder_to_rpm;
 
+        this->unit_data_[i].velocity_Deg = this->unit_data_[i].velocity_Rad * params.rad_to_deg;
+
         this->unit_data_[i].current_A = feedback_[i].current * params.feedback_to_current_coefficient;
 
         this->unit_data_[i].torque_Nm = feedback_[i].current * params.current_to_torque_coefficient;
