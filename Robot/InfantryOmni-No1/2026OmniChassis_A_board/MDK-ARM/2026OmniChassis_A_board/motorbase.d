@@ -1,5 +1,5 @@
-2026omnichassis_a_board/motorbase.o: ..\user\core\BSP\Motor\MotorBase.hpp \
-  ..\user\..\user\core\BSP\Common\StateWatch\state_watch.hpp \
+2026omnichassis_a_board/motorbase.o: ..\User\core\BSP\Motor\MotorBase.hpp \
+  ..\User\..\user\core\BSP\Common\StateWatch\state_watch.hpp \
   ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -25,7 +25,7 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\user\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
+  ..\User\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
@@ -40,7 +40,7 @@
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h \
-  ..\Core\Inc\tim.h ..\user\..\user\core\HAL\CAN\can_hal.hpp \
-  ..\user\..\user\core\HAL\CAN\interface\can_bus.hpp \
-  ..\user\..\user\core\HAL\CAN\interface\can_device.hpp \
+  ..\Core\Inc\tim.h ..\User\..\user\core\HAL\CAN\can_hal.hpp \
+  ..\User\..\user\core\HAL\CAN\interface\can_bus.hpp \
+  ..\User\..\user\core\HAL\CAN\interface\can_device.hpp \
   ..\Core\Inc\can.h

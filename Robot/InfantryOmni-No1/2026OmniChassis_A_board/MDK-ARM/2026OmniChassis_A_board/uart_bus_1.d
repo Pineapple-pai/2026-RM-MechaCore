@@ -1,6 +1,6 @@
 2026omnichassis_a_board/uart_bus_1.o: \
-  ..\user\core\HAL\UART\interface\uart_bus.hpp \
-  ..\user\core\HAL\UART\interface\uart_device.hpp ..\Core\Inc\main.h \
+  ..\User\core\HAL\UART\interface\uart_bus.hpp \
+  ..\User\core\HAL\UART\interface\uart_device.hpp ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \

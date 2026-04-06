@@ -74,6 +74,9 @@
 "2026stringwheelchassis_c_board\pid_1.o"
 "2026stringwheelchassis_c_board\slopeplanning.o"
 "2026stringwheelchassis_c_board\slopplanning.o"
+"2026stringwheelchassis_c_board\powercontroltestversion.o"
+"2026stringwheelchassis_c_board\powercontrol.o"
+"2026stringwheelchassis_c_board\powercontrolbase.o"
 "2026stringwheelchassis_c_board\dt7.o"
 "2026stringwheelchassis_c_board\dt7_1.o"
 "2026stringwheelchassis_c_board\motorbase.o"
@@ -96,6 +99,10 @@
 "2026stringwheelchassis_c_board\motortask_1.o"
 "2026stringwheelchassis_c_board\serialtask.o"
 "2026stringwheelchassis_c_board\serialtask_1.o"
+"2026stringwheelchassis_c_board\uitask.o"
+"2026stringwheelchassis_c_board\uitask_1.o"
+"2026stringwheelchassis_c_board\rm_refereesystem.o"
+"2026stringwheelchassis_c_board\rm_refereesystemcrc.o"
 --strict --scatter "2026StringWheelChassis_C_board\2026StringWheelChassis_C_board.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

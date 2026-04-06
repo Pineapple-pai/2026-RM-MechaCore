@@ -1,7 +1,7 @@
 2026omnichassis_a_board/can_bus.o: \
-  ..\user\core\HAL\CAN\interface\can_bus.cpp \
-  ..\user\core\HAL\CAN\interface\can_bus.hpp \
-  ..\user\core\HAL\CAN\interface\can_device.hpp ..\Core\Inc\can.h \
+  ..\User\core\HAL\CAN\interface\can_bus.cpp \
+  ..\User\core\HAL\CAN\interface\can_bus.hpp \
+  ..\User\core\HAL\CAN\interface\can_device.hpp ..\Core\Inc\can.h \
   ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -27,7 +27,7 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\user\core\HAL\CAN\interface\..\impl\can_bus_impl.hpp \
-  ..\user\core\HAL\CAN\interface\..\impl\..\interface\can_bus.hpp \
-  ..\user\core\HAL\CAN\interface\..\impl\can_device_impl.hpp \
-  ..\user\core\HAL\CAN\interface\..\impl\..\interface\can_device.hpp
+  ..\User\core\HAL\CAN\interface\..\impl\can_bus_impl.hpp \
+  ..\User\core\HAL\CAN\interface\..\impl\..\interface\can_bus.hpp \
+  ..\User\core\HAL\CAN\interface\..\impl\can_device_impl.hpp \
+  ..\User\core\HAL\CAN\interface\..\impl\..\interface\can_device.hpp

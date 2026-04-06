@@ -18,11 +18,11 @@
           <Vendor>STMicroelectronics</Vendor>
           <PackID>Keil.STM32F4xx_DFP.3.0.0</PackID>
           <PackURL>https://www.keil.com/pack/</PackURL>
-          <Cpu>IRAM(0x20000000-0x2002FFFF) IRAM2(0x10000000-0x1000FFFF) IROM(0x8000000-0x81FFFFF)  CLOCK(25000000) FPU2 CPUTYPE("Cortex-M4")</Cpu>
+          <Cpu>IRAM(0x20000000-0x2002FFFF) IRAM2(0x10000000-0x1000FFFF) IROM(0x8000000-0x81FFFFF) CLOCK(25000000) FPU2 CPUTYPE("Cortex-M4") TZ</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
           <FlashDriverDll></FlashDriverDll>
-          <DeviceId></DeviceId>
+          <DeviceId>0</DeviceId>
           <RegisterFile></RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
@@ -81,7 +81,7 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>0</RunUserProg1>
-            <RunUserProg2>0</RunUserProg2>
+            <RunUserProg2>1</RunUserProg2>
             <UserProg1Name></UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
@@ -89,7 +89,7 @@
             <nStopA1X>0</nStopA1X>
             <nStopA2X>0</nStopA2X>
           </AfterMake>
-          <SelectedForBatchBuild>0</SelectedForBatchBuild>
+          <SelectedForBatchBuild>1</SelectedForBatchBuild>
           <SVCSIdString></SVCSIdString>
         </TargetCommonOption>
         <CommonProperty>
@@ -134,10 +134,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4107</DriverSelection>
+            <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>STLink\ST-LINKIII-KEIL_SWO.dll</Flash2>
+          <Flash2>BIN\UL2V8M.DLL</Flash2>
           <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -195,7 +195,7 @@
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
             <RoSelD>3</RoSelD>
-            <RwSelD>3</RwSelD>
+            <RwSelD>4</RwSelD>
             <CodeSel>0</CodeSel>
             <OptFeed>0</OptFeed>
             <NoZi1>0</NoZi1>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F427xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\user</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../User</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -368,8 +368,8 @@
             <noStLib>0</noStLib>
             <RepFail>1</RepFail>
             <useFile>0</useFile>
-            <TextAddressRange>0x08000000</TextAddressRange>
-            <DataAddressRange>0x20000000</DataAddressRange>
+            <TextAddressRange></TextAddressRange>
+            <DataAddressRange></DataAddressRange>
             <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
@@ -607,87 +607,142 @@
             <File>
               <FileName>uart_hal.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\uart_hal.hpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\uart_hal.hpp</FilePath>
             </File>
             <File>
               <FileName>uart_bus.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\interface\uart_bus.cpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\interface\uart_bus.cpp</FilePath>
             </File>
             <File>
               <FileName>uart_bus.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\interface\uart_bus.hpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\interface\uart_bus.hpp</FilePath>
             </File>
             <File>
               <FileName>uart_device.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\interface\uart_device.hpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\interface\uart_device.hpp</FilePath>
             </File>
             <File>
               <FileName>uart_bus_impl.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\impl\uart_bus_impl.cpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\impl\uart_bus_impl.cpp</FilePath>
             </File>
             <File>
               <FileName>uart_bus_impl.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\impl\uart_bus_impl.hpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\impl\uart_bus_impl.hpp</FilePath>
             </File>
             <File>
               <FileName>uart_device_impl.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\impl\uart_device_impl.cpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\impl\uart_device_impl.cpp</FilePath>
             </File>
             <File>
               <FileName>uart_device_impl.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\UART\impl\uart_device_impl.hpp</FilePath>
+              <FilePath>..\User\core\HAL\UART\impl\uart_device_impl.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_user.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\HAL\PWM\pwm_user.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>logger.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\HAL\LOGGER\logger.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>logger.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\HAL\LOGGER\logger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\core\HAL\LOGGER\SEGGER\RTT\SEGGER_RTT.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\core\HAL\LOGGER\SEGGER\RTT\SEGGER_RTT.h</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT_printf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\core\HAL\LOGGER\SEGGER\RTT\SEGGER_RTT_printf.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT_Conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\core\HAL\LOGGER\SEGGER\Config\SEGGER_RTT_Conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>DWT.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\HAL\DWT\DWT.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>DWT.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\HAL\DWT\DWT.hpp</FilePath>
             </File>
             <File>
               <FileName>can_hal.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\can_hal.hpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\can_hal.hpp</FilePath>
             </File>
             <File>
               <FileName>can_bus.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\interface\can_bus.cpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\interface\can_bus.cpp</FilePath>
             </File>
             <File>
               <FileName>can_bus.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\interface\can_bus.hpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\interface\can_bus.hpp</FilePath>
             </File>
             <File>
               <FileName>can_device.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\interface\can_device.cpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\interface\can_device.cpp</FilePath>
             </File>
             <File>
               <FileName>can_device.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\interface\can_device.hpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\interface\can_device.hpp</FilePath>
             </File>
             <File>
               <FileName>can_bus_impl.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\impl\can_bus_impl.cpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\impl\can_bus_impl.cpp</FilePath>
             </File>
             <File>
               <FileName>can_bus_impl.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\impl\can_bus_impl.hpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\impl\can_bus_impl.hpp</FilePath>
             </File>
             <File>
               <FileName>can_device_impl.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\impl\can_device_impl.cpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\impl\can_device_impl.cpp</FilePath>
             </File>
             <File>
               <FileName>can_device_impl.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\HAL\CAN\impl\can_device_impl.hpp</FilePath>
+              <FilePath>..\User\core\HAL\CAN\impl\can_device_impl.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>assert.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\HAL\ASSERT\assert.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>asster.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\HAL\ASSERT\asster.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -695,69 +750,69 @@
           <GroupName>BSP</GroupName>
           <Files>
             <File>
+              <FileName>SimpleKey.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\BSP\SimpleKey\SimpleKey.hpp</FilePath>
+            </File>
+            <File>
               <FileName>DT7.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\RemoteControl\DT7.hpp</FilePath>
+              <FilePath>..\User\core\BSP\RemoteControl\DT7.hpp</FilePath>
             </File>
             <File>
               <FileName>DT7.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\RemoteControl\DT7.cpp</FilePath>
+              <FilePath>..\User\core\BSP\RemoteControl\DT7.cpp</FilePath>
             </File>
             <File>
               <FileName>MotorBase.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Motor\MotorBase.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Lk_motor.hpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Motor\LK\Lk_motor.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>DmMotor.hpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Motor\DM\DmMotor.hpp</FilePath>
+              <FilePath>..\User\core\BSP\Motor\MotorBase.hpp</FilePath>
             </File>
             <File>
               <FileName>DjiMotor.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Motor\Dji\DjiMotor.hpp</FilePath>
+              <FilePath>..\User\core\BSP\Motor\Dji\DjiMotor.hpp</FilePath>
             </File>
             <File>
               <FileName>HI12_imu.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\IMU\HI12_imu.hpp</FilePath>
+              <FilePath>..\User\core\BSP\IMU\HI12_imu.hpp</FilePath>
             </File>
             <File>
               <FileName>HI12Base.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\IMU\HI12Base.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>buzzer.hpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Common\StateWatch\buzzer.hpp</FilePath>
+              <FilePath>..\User\core\BSP\IMU\HI12Base.hpp</FilePath>
             </File>
             <File>
               <FileName>buzzer_manager.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Common\StateWatch\buzzer_manager.cpp</FilePath>
+              <FilePath>..\User\core\BSP\Common\StateWatch\buzzer_manager.cpp</FilePath>
             </File>
             <File>
               <FileName>buzzer_manager.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp</FilePath>
+              <FilePath>..\User\core\BSP\Common\StateWatch\buzzer_manager.hpp</FilePath>
             </File>
             <File>
               <FileName>state_watch.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Common\StateWatch\state_watch.cpp</FilePath>
+              <FilePath>..\User\core\BSP\Common\StateWatch\state_watch.cpp</FilePath>
             </File>
             <File>
               <FileName>state_watch.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\BSP\Common\StateWatch\state_watch.hpp</FilePath>
+              <FilePath>..\User\core\BSP\Common\StateWatch\state_watch.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FiniteStateMachine_chassis.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_chassis.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>FiniteStateMachine_chassis.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_chassis.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -765,29 +820,89 @@
           <GroupName>ALG</GroupName>
           <Files>
             <File>
-              <FileName>adrc.cpp</FileName>
+              <FileName>SlopePlanning.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\Alg\ADRC\adrc.cpp</FilePath>
+              <FilePath>..\User\core\Alg\UtilityFunction\SlopePlanning.hpp</FilePath>
             </File>
             <File>
-              <FileName>adrc.hpp</FileName>
+              <FileName>SlopPlanning.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\Alg\ADRC\adrc.hpp</FilePath>
+              <FilePath>..\User\core\Alg\UtilityFunction\SlopPlanning.cpp</FilePath>
             </File>
             <File>
-              <FileName>AdrcBase.hpp</FileName>
+              <FileName>PowerControlTestVersion.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\Alg\ADRC\AdrcBase.hpp</FilePath>
+              <FilePath>..\User\core\Alg\PowerControl-TestVersion\PowerControlTestVersion.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PowerControl.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\PowerControl\PowerControl.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PowerControlBase.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\PowerControl\PowerControlBase.hpp</FilePath>
             </File>
             <File>
               <FileName>pid.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\Alg\PID\pid.cpp</FilePath>
+              <FilePath>..\User\core\Alg\PID\pid.cpp</FilePath>
             </File>
             <File>
               <FileName>pid.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\core\Alg\PID\pid.hpp</FilePath>
+              <FilePath>..\User\core\Alg\PID\pid.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Filter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\Filter\Filter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Filter.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\Filter\Filter.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Feedforward.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\Feedforward\Feedforward.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Feedforward.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\Feedforward\Feedforward.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OmniCalculation.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\Alg\ChassisCalculation\OmniCalculation.hpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>APP</GroupName>
+          <Files>
+            <File>
+              <FileName>RM_RefereeSystem.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\APP\Referee\RM_RefereeSystem.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RM_RefereeSystem.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\core\APP\Referee\RM_RefereeSystem.h</FilePath>
+            </File>
+            <File>
+              <FileName>RM_RefereeSystemCRC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\core\APP\Referee\RM_RefereeSystemCRC.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RM_RefereeSystemCRC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\core\APP\Referee\RM_RefereeSystemCRC.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -797,47 +912,57 @@
             <File>
               <FileName>Callback.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\Task\Callback.cpp</FilePath>
+              <FilePath>..\User\Task\Callback.cpp</FilePath>
             </File>
             <File>
               <FileName>CommunicationTask.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\Task\CommunicationTask.cpp</FilePath>
+              <FilePath>..\User\Task\CommunicationTask.cpp</FilePath>
             </File>
             <File>
               <FileName>CommunicationTask.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\Task\CommunicationTask.hpp</FilePath>
+              <FilePath>..\User\Task\CommunicationTask.hpp</FilePath>
             </File>
             <File>
               <FileName>ControlTask.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\Task\ControlTask.cpp</FilePath>
+              <FilePath>..\User\Task\ControlTask.cpp</FilePath>
             </File>
             <File>
               <FileName>ControlTask.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\Task\ControlTask.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ImuTask.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\user\Task\ImuTask.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ImuTask.hpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\user\Task\ImuTask.hpp</FilePath>
+              <FilePath>..\User\Task\ControlTask.hpp</FilePath>
             </File>
             <File>
               <FileName>MotorTask.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\Task\MotorTask.cpp</FilePath>
+              <FilePath>..\User\Task\MotorTask.cpp</FilePath>
             </File>
             <File>
               <FileName>MotorTask.hpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\user\Task\MotorTask.hpp</FilePath>
+              <FilePath>..\User\Task\MotorTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialTask.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\Task\SerialTask.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialTask.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\Task\SerialTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>UITask.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\Task\UITask.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UITask.hpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\Task\UITask.hpp</FilePath>
             </File>
           </Files>
         </Group>

@@ -46,4 +46,7 @@
   ..\User\..\User\core\BSP\IMU\HI12Base.hpp \
   ..\User\..\user\core\BSP\Common\StateWatch\state_watch.hpp \
   ..\User\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
-  ..\Core\Inc\tim.h ..\User\..\User\core\BSP\RemoteControl\DT7.hpp
+  ..\Core\Inc\tim.h ..\User\..\User\core\BSP\RemoteControl\DT7.hpp \
+  ..\User\..\User\core\BSP\SimpleKey\SimpleKey.hpp \
+  ..\User\Task\..\core\APP\Referee\RM_RefereeSystem.h \
+  ..\User\..\User\core\APP\Referee\RM_RefereeSystemCRC.h

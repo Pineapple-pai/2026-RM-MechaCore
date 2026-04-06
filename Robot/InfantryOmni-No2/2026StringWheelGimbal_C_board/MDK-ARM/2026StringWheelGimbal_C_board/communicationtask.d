@@ -14,9 +14,10 @@
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h \
-  ..\User\..\user\core\HAL\UART\uart_hal.hpp \
-  ..\User\..\user\core\HAL\UART\interface\uart_bus.hpp \
-  ..\User\..\user\core\HAL\UART\interface\uart_device.hpp \
+  ..\User\..\User\Task\SerialTask.hpp \
+  ..\User\..\User\core\HAL\UART\uart_hal.hpp \
+  ..\User\..\User\core\HAL\UART\interface\uart_bus.hpp \
+  ..\User\..\User\core\HAL\UART\interface\uart_device.hpp \
   ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -42,7 +43,34 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\User\..\user\core\BSP\RemoteControl\DT7.hpp \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pcd.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_usb.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pcd_ex.h \
+  ..\Core\Inc\usart.h ..\User\..\User\core\BSP\IMU\HI12_imu.hpp \
+  ..\User\..\User\core\BSP\IMU\HI12Base.hpp \
   ..\User\..\user\core\BSP\Common\StateWatch\state_watch.hpp \
   ..\User\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
-  ..\Core\Inc\tim.h
+  ..\Core\Inc\tim.h ..\User\..\User\core\BSP\RemoteControl\DT7.hpp \
+  ..\User\..\User\core\BSP\SimpleKey\SimpleKey.hpp \
+  ..\User\..\User\Task\MotorTask.hpp \
+  ..\User\..\User\core\HAL\CAN\can_hal.hpp \
+  ..\User\..\User\core\HAL\CAN\interface\can_bus.hpp \
+  ..\User\..\User\core\HAL\CAN\interface\can_device.hpp \
+  ..\Core\Inc\can.h ..\User\..\User\Task\ControlTask.hpp \
+  ..\User\..\User\core\Alg\Filter\Filter.hpp \
+  ..\User\..\User\core\Alg\Feedforward\Feedforward.hpp \
+  ..\User\..\User\Task\CommunicationTask.hpp \
+  ..\User\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_gimbal.hpp \
+  ..\User\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp \
+  ..\User\..\User\core\Alg\PID\pid.hpp \
+  ..\User\..\User\core\BSP\Motor\Dji\DjiMotor.hpp \
+  ..\User\..\user\core\BSP\Motor\MotorBase.hpp \
+  ..\User\..\User\core\BSP\Motor\DM\DmMotor.hpp \
+  ..\User\..\User\core\APP\Heat_Detector\Heat_Control_Private.hpp \
+  ..\User\..\USB_DEVICE\App\usbd_cdc_if.h \
+  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h \
+  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h \
+  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h \
+  ..\User\..\USB_DEVICE\Target\usbd_conf.h \
+  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h \
+  ..\User\..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h
