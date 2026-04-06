@@ -1,8 +1,8 @@
 2026omnichassis_a_board/can_bus_impl.o: \
-  ..\user\core\HAL\CAN\impl\can_bus_impl.cpp \
-  ..\user\core\HAL\CAN\impl\can_bus_impl.hpp \
-  ..\user\core\HAL\CAN\impl\..\interface\can_bus.hpp \
-  ..\user\core\HAL\CAN\impl\..\interface\can_device.hpp \
+  ..\User\core\HAL\CAN\impl\can_bus_impl.cpp \
+  ..\User\core\HAL\CAN\impl\can_bus_impl.hpp \
+  ..\User\core\HAL\CAN\impl\..\interface\can_bus.hpp \
+  ..\User\core\HAL\CAN\impl\..\interface\can_device.hpp \
   ..\Core\Inc\can.h ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
@@ -29,4 +29,4 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\user\core\HAL\CAN\impl\can_device_impl.hpp
+  ..\User\core\HAL\CAN\impl\can_device_impl.hpp

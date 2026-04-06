@@ -45,11 +45,13 @@
   ..\Core\Inc\usart.h ..\User\..\User\core\BSP\RemoteControl\DT7.hpp \
   ..\User\..\user\core\BSP\Common\StateWatch\state_watch.hpp \
   ..\User\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
-  ..\Core\Inc\tim.h ..\User\..\User\Task\MotorTask.hpp \
-  ..\User\..\User\core\HAL\CAN\can_hal.hpp \
+  ..\Core\Inc\tim.h ..\User\..\User\core\HAL\CAN\can_hal.hpp \
   ..\User\..\User\core\HAL\CAN\interface\can_bus.hpp \
   ..\User\..\User\core\HAL\CAN\interface\can_device.hpp \
-  ..\Core\Inc\can.h ..\User\..\User\Task\ControlTask.hpp \
+  ..\Core\Inc\can.h ..\User\..\User\core\APP\Referee\RM_RefereeSystem.h \
+  ..\User\..\User\core\APP\Referee\RM_RefereeSystemCRC.h \
+  ..\User\..\User\Task\MotorTask.hpp \
+  ..\User\..\User\Task\ControlTask.hpp \
   ..\User\..\User\Task\CommunicationTask.hpp \
   ..\User\..\User\core\BSP\IMU\HI12_imu.hpp \
   ..\User\..\User\core\BSP\IMU\HI12Base.hpp \
@@ -59,4 +61,9 @@
   ..\User\..\User\core\Alg\PID\pid.hpp \
   ..\User\..\User\core\BSP\Motor\Dji\DjiMotor.hpp \
   ..\User\..\user\core\BSP\Motor\MotorBase.hpp \
-  ..\User\..\User\core\BSP\Motor\LK\Lk_motor.hpp
+  ..\User\..\User\core\BSP\Motor\LK\Lk_motor.hpp \
+  ..\User\..\User\core\Alg\UtilityFunction\SlopePlanning.hpp \
+  ..\User\..\User\core\Alg\PowerControl\PowerControl.hpp \
+  ..\User\..\User\core\Alg\PowerControl\PowerControlBase.hpp \
+  ..\User\..\User\Task\SerialTask.hpp \
+  ..\User\..\User\core\BSP\SimpleKey\SimpleKey.hpp

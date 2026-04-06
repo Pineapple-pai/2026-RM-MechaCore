@@ -1,6 +1,6 @@
 2026omnichassis_a_board/can_device.o: \
-  ..\user\core\HAL\CAN\interface\can_device.cpp \
-  ..\user\core\HAL\CAN\interface\can_device.hpp ..\Core\Inc\can.h \
+  ..\User\core\HAL\CAN\interface\can_device.cpp \
+  ..\User\core\HAL\CAN\interface\can_device.hpp ..\Core\Inc\can.h \
   ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \

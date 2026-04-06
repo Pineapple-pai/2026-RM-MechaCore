@@ -1,9 +1,24 @@
-2026omnichassis_a_board/motortask.o: ..\user\Task\MotorTask.cpp \
-  ..\user\Task\MotorTask.hpp ..\user\..\user\core\HAL\CAN\can_hal.hpp \
-  ..\user\..\user\core\HAL\CAN\interface\can_bus.hpp \
-  ..\user\..\user\core\HAL\CAN\interface\can_device.hpp \
-  ..\Core\Inc\can.h ..\Core\Inc\main.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
+2026omnichassis_a_board/motortask.o: ..\User\Task\MotorTask.cpp \
+  ..\User\Task\MotorTask.hpp ..\User\..\User\Task\ControlTask.hpp \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
+  ..\Core\Inc\FreeRTOSConfig.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_wrappers.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\task.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\timers.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h \
+  ..\User\..\User\Task\CommunicationTask.hpp \
+  ..\User\..\User\core\HAL\UART\uart_hal.hpp \
+  ..\User\..\User\core\HAL\UART\interface\uart_bus.hpp \
+  ..\User\..\User\core\HAL\UART\interface\uart_device.hpp \
+  ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
@@ -28,35 +43,23 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\user\..\user\Task\ControlTask.hpp \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  ..\Core\Inc\FreeRTOSConfig.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_wrappers.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\task.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\timers.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\queue.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\semphr.h \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\include\event_groups.h \
-  ..\user\..\user\Task\CommunicationTask.hpp \
-  ..\user\..\user\core\HAL\UART\uart_hal.hpp \
-  ..\user\..\user\core\HAL\UART\interface\uart_bus.hpp \
-  ..\user\..\user\core\HAL\UART\interface\uart_device.hpp \
-  ..\Core\Inc\usart.h ..\user\..\user\core\BSP\RemoteControl\DT7.hpp \
-  ..\user\..\user\core\BSP\Common\StateWatch\state_watch.hpp \
-  ..\user\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
-  ..\Core\Inc\tim.h ..\user\..\user\core\BSP\IMU\HI12_imu.hpp \
-  ..\user\..\user\core\BSP\IMU\HI12Base.hpp \
-  ..\user\..\user\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_gimbal.hpp \
-  ..\user\..\user\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_launch.hpp \
-  ..\user\..\user\core\Alg\PID\pid.hpp \
-  ..\user\..\user\core\Alg\ADRC\adrc.hpp \
-  ..\user\..\user\core\Alg\ADRC\..\ADRC\AdrcBase.hpp \
-  ..\user\..\user\core\BSP\Motor\Dji\DjiMotor.hpp \
-  ..\user\..\user\core\BSP\Motor\MotorBase.hpp \
-  ..\user\..\user\core\BSP\Motor\DM\DmMotor.hpp
+  ..\Core\Inc\usart.h ..\User\..\User\core\BSP\RemoteControl\DT7.hpp \
+  ..\User\..\user\core\BSP\Common\StateWatch\state_watch.hpp \
+  ..\User\..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
+  ..\Core\Inc\tim.h ..\User\..\User\core\HAL\CAN\can_hal.hpp \
+  ..\User\..\User\core\HAL\CAN\interface\can_bus.hpp \
+  ..\User\..\User\core\HAL\CAN\interface\can_device.hpp \
+  ..\Core\Inc\can.h ..\User\..\User\core\APP\Referee\RM_RefereeSystem.h \
+  ..\User\..\User\core\APP\Referee\RM_RefereeSystemCRC.h \
+  ..\User\..\User\core\BSP\IMU\HI12_imu.hpp \
+  ..\User\..\User\core\BSP\IMU\HI12Base.hpp \
+  ..\User\..\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_chassis.hpp \
+  ..\User\..\user\core\Alg\ChassisCalculation\OmniCalculation.hpp \
+  ..\User\..\user\core\Alg\ChassisCalculation\CalculationBase.hpp \
+  ..\User\..\User\core\Alg\PID\pid.hpp \
+  ..\User\..\User\core\BSP\Motor\Dji\DjiMotor.hpp \
+  ..\User\..\user\core\BSP\Motor\MotorBase.hpp \
+  ..\User\..\User\core\BSP\Motor\LK\Lk_motor.hpp \
+  ..\User\..\User\core\Alg\UtilityFunction\SlopePlanning.hpp \
+  ..\User\..\User\core\Alg\PowerControl\PowerControl.hpp \
+  ..\User\..\User\core\Alg\PowerControl\PowerControlBase.hpp

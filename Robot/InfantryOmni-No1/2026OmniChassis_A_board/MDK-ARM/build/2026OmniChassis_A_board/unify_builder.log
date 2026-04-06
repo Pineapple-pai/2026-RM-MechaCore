@@ -1,0 +1,487 @@
+[2026-03-15 01:52:21]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\MotorTask.hpp' has been changed.
+
+[2026-03-15 01:52:22]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\Callback.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026OmniChassis_A_board -D"USE_HAL_DRIVER" -D"STM32F427xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026OmniChassis_A_board/.obj/__/User/Task/Callback.o -MMD ./../User/Task/Callback.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./../User/Task/Callback.cpp:1:
+In file included from ./../User/Task\MotorTask.hpp:4:
+.\../User/Task/ControlTask.hpp:28:19: error: expected ';' at end of declaration list
+   28 |     float out_dial
+      |                   ^
+      |                   ;
+1 error generated.
+
+[2026-03-15 01:52:41]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\Callback.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\ControlTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\MotorTask.hpp' has been changed.
+
+[2026-03-15 01:52:44]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026OmniChassis_A_board -D"USE_HAL_DRIVER" -D"STM32F427xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026OmniChassis_A_board/.obj/__/User/Task/ControlTask.o -MMD ./../User/Task/ControlTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/ControlTask.cpp:622:12: error: use of undeclared identifier 'launch_state'
+  622 |     switch(launch_state)
+      |            ^
+./../User/Task/ControlTask.cpp:624:14: error: use of undeclared identifier 'LAUNCH_STOP'
+  624 |         case LAUNCH_STOP:
+      |              ^
+./../User/Task/ControlTask.cpp:627:14: error: use of undeclared identifier 'LAUNCH_CEASEFIRE'
+  627 |         case LAUNCH_CEASEFIRE:
+      |              ^
+./../User/Task/ControlTask.cpp:630:14: error: use of undeclared identifier 'LAUNCH_AUTO'
+  630 |         case LAUNCH_AUTO:
+      |              ^
+./../User/Task/ControlTask.cpp:633:14: error: use of undeclared identifier 'LAUNCH_ONLY'
+  633 |         case LAUNCH_ONLY:
+      |              ^
+./../User/Task/ControlTask.cpp:636:14: error: use of undeclared identifier 'LAUNCH_JAM'
+  636 |         case LAUNCH_JAM:
+      |              ^
+./../User/Task/ControlTask.cpp:705:8: error: expected unqualified-id
+  705 | extern "C"{
+      |        ^
+7 errors generated.
+
+[2026-03-15 01:53:48]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\MotorTask.hpp' has been changed.
+
+[2026-03-15 01:53:49]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026OmniChassis_A_board -D"USE_HAL_DRIVER" -D"STM32F427xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026OmniChassis_A_board/.obj/__/User/Task/ControlTask.o -MMD ./../User/Task/ControlTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/ControlTask.cpp:705:8: error: expected unqualified-id
+  705 | extern "C"{
+      |        ^
+1 error generated.
+
+[2026-03-15 02:55:47]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': object (.o) file not exist
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\MotorTask.hpp' has been changed.
+
+[2026-03-15 02:55:52]	[done]
+	build successfully !
+
+[2026-03-15 03:05:39]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\Task\CommunicationTask.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': source file has been changed.
+
+[2026-03-15 03:05:44]	[done]
+	build successfully !
+
+[2026-03-15 10:00:15]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': source file has been changed.
+
+[2026-03-15 10:00:18]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026OmniChassis_A_board -D"USE_HAL_DRIVER" -D"STM32F427xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026OmniChassis_A_board/.obj/__/User/Task/MotorTask.o -MMD ./../User/Task/MotorTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/MotorTask.cpp:61:8: error: expected unqualified-id
+   61 | extern "C"{
+      |        ^
+./../User/Task/MotorTask.cpp:76:1: error: expected '}'
+   76 | 
+      | ^
+./../User/Task/MotorTask.cpp:33:1: note: to match this '{'
+   33 | {
+      | ^
+2 errors generated.
+
+[2026-03-15 10:00:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': object (.o) file not exist
+
+[2026-03-15 10:00:41]	[done]
+	build successfully !
+
+[2026-03-15 10:02:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 10:02:57]	[done]
+	build successfully !
+
+[2026-03-15 10:03:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 10:03:01]	[done]
+	build successfully !
+
+[2026-03-15 17:16:29]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\Callback.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\core\BSP\Motor\LK\Lk_motor.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\core\BSP\Motor\LK\Lk_motor.hpp' has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\MotorTask.cpp': dependence 'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\MDK-ARM\..\User\core\BSP\Motor\LK\Lk_motor.hpp' has been changed.
+
+[2026-03-15 17:16:35]	[done]
+	build successfully !
+
+[2026-03-15 17:18:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:18:36]	[done]
+	build successfully !
+
+[2026-03-15 17:18:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:18:48]	[done]
+	build successfully !
+
+[2026-03-15 17:35:42]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:35:44]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026OmniChassis_A_board -D"USE_HAL_DRIVER" -D"STM32F427xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026OmniChassis_A_board/.obj/__/User/Task/ControlTask.o -MMD ./../User/Task/ControlTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/ControlTask.cpp:50:5: error: a type specifier is required for all declarations
+   50 |     last_state = state;
+      |     ^
+./../User/Task/ControlTask.cpp:50:18: error: use of undeclared identifier 'state'
+   50 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:353:18: error: use of undeclared identifier 'state'
+  353 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:441:18: error: use of undeclared identifier 'state'
+  441 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:505:18: error: use of undeclared identifier 'state'
+  505 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:569:18: error: use of undeclared identifier 'state'
+  569 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:600:18: error: use of undeclared identifier 'state'
+  600 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:796:13: error: a type specifier is required for all declarations
+  796 |             launch_angle();
+      |             ^
+./../User/Task/ControlTask.cpp:797:13: error: expected unqualified-id
+  797 |             break;
+      |             ^
+./../User/Task/ControlTask.cpp:798:9: error: expected unqualified-id
+  798 |         case 3:
+      |         ^
+./../User/Task/ControlTask.cpp:800:13: error: expected unqualified-id
+  800 |             break;
+      |             ^
+./../User/Task/ControlTask.cpp:801:9: error: expected unqualified-id
+  801 |         case 4:
+      |         ^
+./../User/Task/ControlTask.cpp:803:13: error: expected unqualified-id
+  803 |             break;
+      |             ^
+./../User/Task/ControlTask.cpp:804:9: error: expected unqualified-id
+  804 |         default:
+      |         ^
+./../User/Task/ControlTask.cpp:806:13: error: expected unqualified-id
+  806 |             break;
+      |             ^
+./../User/Task/ControlTask.cpp:807:5: error: extraneous closing brace ('}')
+  807 |     }
+      |     ^
+./../User/Task/ControlTask.cpp:809:5: error: a type specifier is required for all declarations
+  809 |     last_state = state;
+      |     ^
+./../User/Task/ControlTask.cpp:809:18: error: use of undeclared identifier 'state'
+  809 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:810:1: error: extraneous closing brace ('}')
+  810 | }
+      | ^
+19 errors generated.
+
+[2026-03-15 17:36:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': object (.o) file not exist
+
+[2026-03-15 17:36:13]	compilation failed at : "f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp", exit code: 1
+command: 
+  "F:\keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I. -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../User -I.cmsis/include -IRTE/_2026OmniChassis_A_board -D"USE_HAL_DRIVER" -D"STM32F427xx" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O0 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/2026OmniChassis_A_board/.obj/__/User/Task/ControlTask.o -MMD ./../User/Task/ControlTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/Task/ControlTask.cpp:50:5: error: a type specifier is required for all declarations
+   50 |     last_state = state;
+      |     ^
+./../User/Task/ControlTask.cpp:50:18: error: use of undeclared identifier 'state'
+   50 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:353:18: error: use of undeclared identifier 'state'
+  353 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:441:18: error: use of undeclared identifier 'state'
+  441 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:505:18: error: use of undeclared identifier 'state'
+  505 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:569:18: error: use of undeclared identifier 'state'
+  569 |     last_state = state;
+      |                  ^
+./../User/Task/ControlTask.cpp:600:18: error: use of undeclared identifier 'state'
+  600 |     last_state = state;
+      |                  ^
+7 errors generated.
+
+[2026-03-15 17:37:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': object (.o) file not exist
+
+[2026-03-15 17:37:37]	[done]
+	build successfully !
+
+[2026-03-15 17:39:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:39:27]	[done]
+	build successfully !
+
+[2026-03-15 17:45:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:45:36]	[done]
+	build successfully !
+
+[2026-03-15 17:52:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:52:16]	[done]
+	build successfully !
+
+[2026-03-15 17:53:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:53:23]	[done]
+	build successfully !
+
+[2026-03-15 17:55:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 17:55:58]	[done]
+	build successfully !
+
+[2026-03-15 18:02:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 18:02:46]	[done]
+	build successfully !
+
+[2026-03-15 18:35:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 18:35:38]	[done]
+	build successfully !
+
+[2026-03-15 19:21:06]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 19:21:08]	[done]
+	build successfully !
+
+[2026-03-15 19:22:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2026-03-15 19:22:07]	[done]
+	build successfully !
+
+[2026-03-15 19:45:00]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\CommunicationTask.cpp': source file has been changed.
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 19:45:03]	[done]
+	build successfully !
+
+[2026-03-15 19:48:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 19:48:17]	[done]
+	build successfully !
+
+[2026-03-15 19:51:51]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 19:51:52]	[done]
+	build successfully !
+
+[2026-03-15 19:52:31]	[done]
+	build successfully !
+
+[2026-03-15 19:56:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-15 19:56:16]	[done]
+	build successfully !
+
+[2026-03-15 19:59:42]	[done]
+	build successfully !
+
+[2026-03-16 12:07:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-16 12:07:58]	[done]
+	build successfully !
+
+[2026-03-16 12:08:29]	[done]
+	build successfully !
+
+[2026-03-16 12:13:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-16 12:13:38]	[done]
+	build successfully !
+
+[2026-03-16 23:02:19]	[done]
+	build successfully !
+
+[2026-03-17 01:17:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 01:17:06]	[done]
+	build successfully !
+
+[2026-03-17 01:19:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 01:20:01]	[done]
+	build successfully !
+
+[2026-03-17 01:21:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 01:21:34]	[done]
+	build successfully !
+
+[2026-03-17 01:22:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 01:22:55]	[done]
+	build successfully !
+
+[2026-03-17 01:36:21]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 01:36:24]	[done]
+	build successfully !
+
+[2026-03-17 01:37:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-17 01:37:45]	[done]
+	build successfully !
+
+[2026-03-18 11:56:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_chassis.cpp': source file has been changed.
+
+[2026-03-18 11:56:55]	[done]
+	build successfully !
+
+[2026-03-18 11:57:08]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\core\BSP\Common\FiniteStateMachine\FiniteStateMachine_chassis.cpp': source file has been changed.
+
+[2026-03-18 11:57:08]	[done]
+	build successfully !
+
+[2026-03-18 11:57:36]	[done]
+	build successfully !
+
+[2026-03-19 02:10:49]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\RCIA\2026-RM-MechaCore\Robot\InfantryOmni-No1\2026OmniChassis_A_board\User\Task\ControlTask.cpp': source file has been changed.
+
+[2026-03-19 02:10:51]	[done]
+	build successfully !
+

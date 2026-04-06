@@ -1,6 +1,6 @@
 2026omnichassis_a_board/buzzer_manager.o: \
-  ..\user\core\BSP\Common\StateWatch\buzzer_manager.cpp \
-  ..\user\core\BSP\Common\StateWatch\buzzer_manager.hpp \
+  ..\User\core\BSP\Common\StateWatch\buzzer_manager.cpp \
+  ..\User\core\BSP\Common\StateWatch\buzzer_manager.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \

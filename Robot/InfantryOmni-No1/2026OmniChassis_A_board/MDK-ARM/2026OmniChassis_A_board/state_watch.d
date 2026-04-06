@@ -1,6 +1,6 @@
 2026omnichassis_a_board/state_watch.o: \
-  ..\user\core\BSP\Common\StateWatch\state_watch.cpp \
-  ..\user\core\BSP\Common\StateWatch\state_watch.hpp ..\Core\Inc\main.h \
+  ..\User\core\BSP\Common\StateWatch\state_watch.cpp \
+  ..\User\core\BSP\Common\StateWatch\state_watch.hpp ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \

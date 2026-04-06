@@ -1,18 +1,50 @@
 #include "SerialTask.hpp"
+#include "../User/Task/ControlTask.hpp"
+#include "../User/Task/CommunicationTask.hpp"
+extern Launch_FSM launch_fsm; 
+extern Vision vision;
 
+/**
+ * @brief 初始化
+ */
+/* 陀螺仪 ---------------------------------------------------------------------------------------------------*/
 BSP::IMU::HI12_float HI12;
 uint8_t HI12RX_buffer[82];
+
+/* 遥控器 ---------------------------------------------------------------------------------------------------*/
 BSP::REMOTE_CONTROL::RemoteController DT7;
 uint8_t DT7Rx_buffer[18];
 
-void ImuInit()
+/* 按键 ---------------------------------------------------------------------------------------------------*/
+bool is_change;
+bool is_vision;
+bool last_is_vision = false; // 上一次是不是视觉模式
+bool alphabet[28];  // 27：鼠标左键，28：鼠标右键
+BSP::Key::SimpleKey Key_x;
+BSP::Key::SimpleKey Key_v;
+BSP::Key::SimpleKey Key_b;
+BSP::Key::SimpleKey Key_r;
+BSP::Key::SimpleKey Key_g;
+BSP::Key::SimpleKey Mouse_left;
+BSP::Key::SimpleKey Mouse_right;
+
+/* 串口接收 ---------------------------------------------------------------------------------------------*/
+/**
+ * @brief 串口初始化函数
+ * 
+ * 初始化串口并注册设备反馈数据解析回调函数
+ */
+void SerialInit()
 {
+    // 实例串口
     auto &uart1 = HAL::UART::get_uart_bus_instance().get_device(HAL::UART::UartDeviceId::HAL_Uart1);
     auto &uart3 = HAL::UART::get_uart_bus_instance().get_device(HAL::UART::UartDeviceId::HAL_Uart3);
     
+    // 设置缓冲区
     HAL::UART::Data uart1_rx_buffer{HI12RX_buffer, 82};
     HAL::UART::Data uart3_rx_buffer{DT7Rx_buffer, 18};
 
+    // 注册串口接收回调函数
     uart1.receive_dma_idle(uart1_rx_buffer);
     uart3.receive_dma_idle(uart3_rx_buffer);
     uart1.register_rx_callback([](const HAL::UART::Data &data) 
@@ -31,13 +63,129 @@ void ImuInit()
     });
 }
 
-extern "C" {
-void imu(void const * argument)
+/* 键鼠逻辑 ---------------------------------------------------------------------------------------------*/
+/**
+ * @brief 原始状态更新，放置于SimpleKey中
+ * 
+ */
+void KeyUpdate()
 {
-    ImuInit();
+    Key_x.update(DT7.get_key(BSP::REMOTE_CONTROL::RemoteController::KEY_X));
+    Key_r.update(DT7.get_key(BSP::REMOTE_CONTROL::RemoteController::KEY_R));
+    Key_g.update(DT7.get_key(BSP::REMOTE_CONTROL::RemoteController::KEY_G));
+    Key_v.update(DT7.get_key(BSP::REMOTE_CONTROL::RemoteController::KEY_V));
+    Key_b.update(DT7.get_key(BSP::REMOTE_CONTROL::RemoteController::KEY_B));
+    Mouse_left.update(DT7.get_mouseLeft());
+    Mouse_right.update(DT7.get_mouseRight());
+}
+
+/**
+ * @brief 键鼠逻辑处理
+ * 
+ * @param alphabet 
+ */
+void KeyProcess(bool *alphabet)
+{
+    alphabet[23] = Key_x.getPress();
+    alphabet[26] = Mouse_left.getPress();
+    alphabet[27] = Mouse_right.getPress();
+
+    // 鼠标左键有没有松开过
+    is_change = Mouse_left.getFallingEdge(); 
+
+    // 左键也能开启摩擦轮，R开摩擦轮，G关摩擦轮
+    if (Key_r.getRisingEdge()) 
+    {
+        alphabet[17] = true;    // R为1
+        alphabet[6] = false;   // G为0
+    }
+    else if(Key_g.getRisingEdge())
+    {
+        alphabet[17] = false;   // R为0
+        alphabet[6] = true;    // G为1
+    }
+    if (Mouse_left.getRisingEdge()) 
+    {
+        alphabet[17] = true;    // R为1
+        alphabet[6] = false;   // G为0
+    }
+
+
+    /* --- 1. 判定是否进入视觉托管模式 --- */
+    if(vision.getVisionFlag())
+    {
+        // 如果是键鼠模式 (3,3)，不仅要 visionFlag 还要按住右键
+        if(DT7.get_s1() == 3 && DT7.get_s2() == 3) 
+        {
+            is_vision = alphabet[27]; 
+        }
+        else // 遥控模式，只要 visionFlag 就托管
+        {
+            is_vision = true;
+        }
+    }
+    else
+    {
+        is_vision = false;
+    }
+    // 检测是否刚刚退出视觉模式（下降沿），如果是，为了安全最好重置一下
+    if (last_is_vision && !is_vision) { alphabet[12]=0; alphabet[13]=0; } 
+    static bool fire_state = false;
+    /* --- 2. 执行逻辑 --- */
+    if(is_vision)
+    {
+        // 视觉完全接管 单发连发（M连，N单） 状态 ！！：B true是单发，false是连发
+        uint8_t mode = vision.getVisionMode();
+        if(mode == 0)      { alphabet[12] = false; alphabet[13] = false; }
+        else if(mode == 1) { alphabet[12] = false;  alphabet[13] = true; }
+        else if(mode == 2) { alphabet[12] = true; alphabet[13] = false;  }
+    }
+    else
+    {
+        if(Key_b.getRisingEdge())
+        {
+            fire_state = !fire_state;
+        }
+        // 手动逻辑
+        if (fire_state)
+        {
+            alphabet[13] = true;
+            alphabet[12] = false;
+        }
+        else if (!fire_state)
+        {
+            alphabet[12] = true;
+            alphabet[13] = false;
+        }
+        else if (Mouse_left.getRisingEdge() && launch_fsm.Get_Now_State() == LAUNCH_CEASEFIRE)
+        {
+            alphabet[12] = true; 
+            alphabet[13] = false;   
+        }
+
+
+    }
+
+    last_is_vision = is_vision; 
+}
+
+/* 任务函数 --------------------------------------------------------------------------------------------*/
+/**
+ * @brief 串口接收任务函数
+ * 
+ * 任务主循环，任务为空
+ * 
+ * @param argument 任务参数指针
+ */
+extern "C" {
+void Serival(void const * argument)
+{
+    SerialInit();
     for(;;)
     {
-        osDelay(1);
+        KeyUpdate();
+        KeyProcess(alphabet);
+        osDelay(5);
     }
 }
 

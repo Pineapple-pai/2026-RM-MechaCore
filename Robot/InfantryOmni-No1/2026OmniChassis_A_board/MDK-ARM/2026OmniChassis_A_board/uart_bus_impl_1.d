@@ -1,7 +1,7 @@
 2026omnichassis_a_board/uart_bus_impl_1.o: \
-  ..\user\core\HAL\UART\impl\uart_bus_impl.hpp \
-  ..\user\core\HAL\UART\impl\..\interface\uart_bus.hpp \
-  ..\user\core\HAL\UART\impl\..\interface\uart_device.hpp \
+  ..\User\core\HAL\UART\impl\uart_bus_impl.hpp \
+  ..\User\core\HAL\UART\impl\..\interface\uart_bus.hpp \
+  ..\User\core\HAL\UART\impl\..\interface\uart_device.hpp \
   ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -27,4 +27,4 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\user\core\HAL\UART\impl\uart_device_impl.hpp
+  ..\Core\Inc\usart.h ..\User\core\HAL\UART\impl\uart_device_impl.hpp
